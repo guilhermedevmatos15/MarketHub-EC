@@ -1,0 +1,47 @@
+@import '../../../styles/variables';
+
+.Navigation {
+   ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      li,
+      a {
+         text-decoration: none;
+         cursor: pointer;
+         transition: $transition;
+      }
+
+      &.color--dark {
+         li,
+         a {
+            color: black;
+
+            &:hover {
+               color: $color-02;
+            }
+         }
+      }
+      
+      &.color--light {
+         li,
+         a {
+            color: white;
+
+            &:hover {
+               color: $color-01;
+            }
+         }
+      }
+
+      &.direction--row {
+         flex-direction: row;
+      }
+
+      &.direction--column {
+         flex-direction: column;
+      }
+   }
+}

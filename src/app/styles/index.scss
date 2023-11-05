@@ -2,6 +2,25 @@
 
 @import './fonts';
 @import './variables';
-@import './reset';
 @import './inputs';
 @import './buttons';
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body, .App, #root {
+   width: 100%;
+   min-height: 100vh;
+   font-family: $font-default;
+}
+
+.App {
+   padding-top: $header-height;
+}
+
+img {
+   width: 100px;
+}

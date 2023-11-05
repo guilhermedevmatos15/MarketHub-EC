@@ -1,0 +1,37 @@
+// Aquivo exclusivo para responsividade.
+// Exclusive file for responsiveness.
+
+@import '../../../styles/variables';
+
+.Header {
+   @media (max-width: 960px) {
+      & {
+         .Navigation,
+         .header-interations {
+            display: none;
+         }
+
+         .header-icon-menu {
+            display: inline;
+            color: black;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+               color: $color-01;
+            }
+         }
+      }
+   }
+
+   @media (max-width: 450px) {
+      & {
+         padding: 20px 30px;
+
+         img {
+            width: 150px;
+         }
+      }
+   }
+}

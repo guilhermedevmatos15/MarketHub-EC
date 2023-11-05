@@ -1,0 +1,63 @@
+@import '../../../styles/variables';
+
+.Footer {
+   $bg-color: #181818;
+
+   width: 100%;
+   padding: 30px;
+   background-color: $bg-color;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 30px;
+
+   img {
+      width: 60px;
+   }
+
+   .Navigation {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      font-weight: 300;
+   }
+
+   .footer-social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      &-icon {
+         font-size: 1.2rem;
+         color: white;
+         opacity: 0.6;
+         cursor: pointer;
+         transition: $transition;
+
+         &:hover {
+            opacity: 1;
+            color: $color-02;
+         }
+      }
+   }
+
+   p {
+      margin-top: 10px;
+      color: white;
+      opacity: 0.8;
+      font-size: 0.95rem;
+      font-weight: 300;
+
+      a {
+         color: lighten($color-01, 20);
+         cursor: pointer;
+         transition: $transition;
+
+         &:hover {
+            color: lighten($color-01, 5);
+         }
+      }
+   }
+}

@@ -1,0 +1,25 @@
+// Aquivo exclusivo para responsividade.
+// Exclusive file for responsiveness.
+
+@import '../../../styles/variables';
+
+.Footer {
+   @media (max-width: 400px) {
+      & {        
+         .Navigation {
+            ul {
+               flex-direction: column;
+            }
+         }
+
+         .footer-social {
+            margin-top: 20px;
+            gap: 40px;
+
+            &-icon {
+               font-size: 1.3rem;
+            }
+         }
+      }
+   }
+}
