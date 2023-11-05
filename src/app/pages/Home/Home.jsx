@@ -1,6 +1,7 @@
 import React from 'react';
 
 // * components
+import Hero from '../../components/section/Hero/Hero';
 
 // * style
 import './Home.scss';
@@ -16,7 +17,7 @@ import './Home.scss';
 const Home = () => {
    return (
       <main className="Home">
-         
+         <Hero />
       </main>
    );
 };
