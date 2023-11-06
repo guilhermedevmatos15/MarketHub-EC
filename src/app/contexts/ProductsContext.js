@@ -1,6 +1,6 @@
 import React, { useState, createContext, useEffect } from 'react';
 
-const Context = createContext();
+export const Context = createContext();
 
 const ProductsContext = ({ children }) => {
    const [products, setProducts] = useState([]);
@@ -21,7 +21,7 @@ const ProductsContext = ({ children }) => {
             setProducts('Error in API');
          }
       })();
-   });
+   }, []);
 
    return (
       <Context.Provider value={{ products, setProducts }}>

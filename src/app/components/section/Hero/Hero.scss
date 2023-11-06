@@ -1,0 +1,33 @@
+@import '../../../styles/variables';
+
+.Hero {
+   width: 100%;
+   height: 500px;
+
+   .hero-slider {
+      width: 100%;
+      height: 500px;
+      position: relative;
+
+      &-controls {
+         position: absolute;
+         bottom: 10px;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 10px;
+
+         &-control {
+            color: black;
+            font-size: 0.85rem;
+            cursor: pointer;
+
+            &.active {
+               color: $color-05;
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,11 @@
+.Hero {
+   @media (max-width: 1200px) {
+      & {
+         height: 600px;
+
+         .hero-slider {
+            height: 600px;
+         }
+      }
+   }
+}
