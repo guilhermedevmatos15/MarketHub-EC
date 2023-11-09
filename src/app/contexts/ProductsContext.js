@@ -4,27 +4,37 @@ export const Context = createContext();
 
 const ProductsContext = ({ children }) => {
    const [products, setProducts] = useState([]);
+   const [categories, setCategories] = useState([]);
 
    useEffect(() => {
       (async () => {
          try {
             // documentação: https://fakestoreapi.com/docs
-            const URL = 'https://fakestoreapi.com/products';
+            const URL_all_products = 'https://fakestoreapi.com/products';
+            const URL_all_categories =
+               'https://fakestoreapi.com/products/categories';
 
-            const response = await fetch(URL);
+            // get products
+            const response = await fetch(URL_all_products);
             const data = await response.json();
 
-            console.log(data);
+            // get categories
+            const responseCateg = await fetch(URL_all_categories);
+            const dataCateg = await responseCateg.json();
+
             setProducts(data);
+            setCategories(dataCateg);
          } catch (e) {
-            console.log('Error in API');
-            setProducts('Error in API');
+            setProducts(false);
+            setCategories(false);
+
+            console.log('Error from API');
          }
       })();
    }, []);
 
    return (
-      <Context.Provider value={{ products, setProducts }}>
+      <Context.Provider value={{ products, setProducts, categories, setCategories }}>
          {children}
       </Context.Provider>
    );

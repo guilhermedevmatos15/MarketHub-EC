@@ -1,0 +1,38 @@
+@import '../../../styles/variables';
+
+.Option {
+   width: 130px;
+   height: 160px;
+   padding: 30px;
+   border-radius: 10px;
+   display: flex;
+   text-align: center;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   cursor: pointer;
+   transition: $transition;
+
+   &:hover {
+      box-shadow: 0 0 20px #00000055;
+
+      img {
+         transform: scale(110%);
+         transition: $transition;
+      }
+   }
+   
+   img {
+      width: 50px;
+      transition: $transition;
+   }
+
+   
+   .option-name {
+      text-transform: capitalize;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5rem;
+   }
+}

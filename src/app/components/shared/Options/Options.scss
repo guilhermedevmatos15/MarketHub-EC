@@ -1,0 +1,26 @@
+@import '../../../styles/variables';
+
+.Options {
+   margin-top: 100px;
+   width: 100%;
+   padding: 0 30px;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 50px;
+
+   .options-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+   }
+
+   .choices {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 50px;
+   }
+}

@@ -41,7 +41,7 @@ const Hero = () => {
    }, [currentIndex]);
 
    return (
-      <div className="Hero">
+      <section className="Hero">
          <div className="hero-slider">
             {productsSlides.map((product, index) => (
                <HeroSlide
@@ -74,7 +74,7 @@ const Hero = () => {
                ))}
             </div>
          </div>
-      </div>
+      </section>
    );
 };
 
