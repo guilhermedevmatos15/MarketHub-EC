@@ -9,7 +9,9 @@ const getRandomProductByCategory = async (category) => {
       const response = await fetch(URL);
       const data = await response.json();
 
-      return data[getRandomNumber(0, data.length - 1)];
+      const index = getRandomNumber(0, data.length - 1);
+
+      return data[index];
    } catch (e) {
       return false;
    }

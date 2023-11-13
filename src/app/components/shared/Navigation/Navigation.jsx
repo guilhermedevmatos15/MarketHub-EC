@@ -26,7 +26,7 @@ const Navigation = ({ color, direction, gap }) => {
                <a href="#">Home</a>
             </li>
             <li>
-               <a href="#">Categorias</a>
+               <a href="#">Categories</a>
             </li>
             <li>
                <a href="#">About</a>

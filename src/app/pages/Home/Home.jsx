@@ -3,11 +3,13 @@ import React, { useContext, useEffect, useState } from 'react';
 // * components
 import Hero from '../../components/section/Hero/Hero';
 import Options from '../../components/shared/Options/Options';
+import PromotionProduct from '../../components/shared/PromotionProduct/PromotionProduct';
 
 // * style
 import './Home.scss';
 
 // * scripts
+import getRandomProductByCategory from '../../utils/getRandomProductByCategory';
 
 // * contexts
 import { Context } from '../../contexts/ProductsContext';
@@ -20,38 +22,75 @@ const Home = () => {
    const { products, categories } = useContext(Context);
 
    const [productsByCateg, setProductsByCateg] = useState([]);
+   const [productsPromoteds, setProductsPromoteds] = useState([]);
 
    useEffect(() => {
       if (products.length > 0) {
-         const newProducts = Array(4).fill(null);
+         (async () => {
+            const newProducts = Array(4).fill(null);
 
-         for (let i in categories) {
-            if (categories[i] !== undefined) {
-               const category = categories[i];
+            for (let i in categories) {
+               if (categories[i] !== undefined) {
+                  const category = categories[i];
 
-               for (let product of products) {
-                  if (
-                     product.category === category &&
-                     newProducts[i] === null
-                  ) {
-                     newProducts[i] = product;
+                  for (let product of products) {
+                     if (
+                        product.category === category &&
+                        newProducts[i] === null
+                     ) {
+                        newProducts[i] = product;
+                     }
                   }
                }
             }
-         }
 
-         setProductsByCateg(newProducts);
+            setProductsByCateg(newProducts);
+
+            try {
+               const randomProductElec = await getRandomProductByCategory(
+                  'electronics'
+               );
+               const randomProductWomanClo = await getRandomProductByCategory(
+                  'jewelery'
+               );
+
+               setProductsPromoteds([randomProductElec, randomProductWomanClo]);
+            } catch (e) {
+               console.log(e);
+            }
+         })();
       }
    }, [products, categories]);
 
    return (
       <main className="Home">
-         <Hero />
-         <Options
-            className="TrendingCategories"
-            title="Trending Categories"
-            choices={productsByCateg}
-         />
+         {products.length > 0 && (
+            <>
+               <Hero />
+
+               {productsByCateg.length > 0 && (
+                  <Options
+                     className="TrendingCategories"
+                     title="Trending Categories"
+                     choices={productsByCateg}
+                  />
+               )}
+
+               {productsPromoteds.length > 0 && (
+                  <section className="promotions">
+                     <PromotionProduct
+                        type="small"
+                        product={productsPromoteds[0]}
+                     />
+                     <PromotionProduct
+                        type="small"
+                        product={productsPromoteds[1]}
+                        hurryUp={true}
+                     />
+                  </section>
+               )}
+            </>
+         )}
       </main>
    );
 };
