@@ -5,7 +5,6 @@ import Navigation from '../Navigation/Navigation';
 
 // * style
 import './Footer.scss';
-import './Footer_rpsv.scss';
 
 // * scripts
 

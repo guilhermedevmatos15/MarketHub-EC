@@ -14,6 +14,16 @@
          transition: $transition;
       }
 
+      // Flex Direction options
+      &.direction--row {
+         flex-direction: row;
+      }
+
+      &.direction--column {
+         flex-direction: column;
+      }
+
+      // Colors options
       &.color--dark {
          li,
          a {
@@ -24,7 +34,6 @@
             }
          }
       }
-      
       &.color--light {
          li,
          a {
@@ -36,12 +45,18 @@
          }
       }
 
-      &.direction--row {
-         flex-direction: row;
+      // Font Size options
+      &.color--small {
+         li,
+         a {
+            font-size: 0.9rem;
+         }
       }
-
-      &.direction--column {
-         flex-direction: column;
+      &.color--big {
+         li,
+         a {
+            font-size: 1.15rem;
+         }
       }
    }
 }

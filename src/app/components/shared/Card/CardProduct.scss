@@ -1,10 +1,6 @@
 @import '../../../styles/variables';
 
-.PromotionProduct.small {
-   width: 100%;
-   height: 340px;
-   min-width: 280px;
-   max-width: 350px;
+.Card.product {
    padding: 0 25px;
    text-align: center;
    display: flex;

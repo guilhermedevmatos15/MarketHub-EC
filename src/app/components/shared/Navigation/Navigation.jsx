@@ -13,13 +13,19 @@ import './Navigation.scss';
 
 // * icons
 
-const Navigation = ({ color, direction, gap }) => {
+const Navigation = ({ fontSize, color, direction, gap }) => {
    return (
       <nav className="Navigation">
          <ul
             style={{ gap }}
             className={`${color === 'dark' ? 'color--dark' : 'color--light'} ${
                direction === 'row' ? 'direction--row' : 'direction--column'
+            } ${
+               fontSize === 'small'
+                  ? 'fontSize--small'
+                  : fontSize === 'big'
+                  ? 'fontSize--big'
+                  : ''
             }`}
          >
             <li>

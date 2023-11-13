@@ -5,7 +5,6 @@ import Navigation from '../Navigation/Navigation';
 
 // * style
 import './Header.scss';
-import './Header_rpsv.scss';
 
 // * scripts
 

@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // * components
 
 // * style
-import './PromotionProduct.scss';
+import './Card.scss';
 
 // * scripts
 
@@ -13,13 +14,11 @@ import './PromotionProduct.scss';
 
 // * icons
 
-const PromotionProduct = ({ type, product, hurryUp }) => {
-   console.log(product);
-
+const Card = ({ type, product, hurryUp }) => {
    return (
       <>
-         {type === 'small' && (
-            <div className={`PromotionProduct ${type}`}>
+         {type === 'product' && (
+            <div className={`Card ${type}`}>
                <p>{product.title.split(' ').slice(0, 3).join(' ')}</p>
                <h3>
                   just starting at ${product.price} {hurryUp && 'hurry up!'}
@@ -32,4 +31,8 @@ const PromotionProduct = ({ type, product, hurryUp }) => {
    );
 };
 
-export default PromotionProduct;
+Card.propTypes = {
+   type: PropTypes.string.isRequired,
+};
+
+export default Card;

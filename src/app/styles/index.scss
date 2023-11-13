@@ -22,6 +22,15 @@ body,
 
 .App {
    padding-top: $header-height;
+
+   &.loading {
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
 }
 
 img {

@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Outlet } from 'react-router-dom';
 
 // * components
+import Loading from './app/components/shared/Loading/Loading';
 import Header from './app/components/shared/Header/Header';
 import Footer from './app/components/shared/Footer/Footer';
 
 // * style
 import './app/styles/index.scss';
 
+// * context
+import { Context } from './app/contexts/ProductsContext';
+
 const App = () => {
+   const { products } = useContext(Context);
+
    return (
-      <div className="App">
-         <Header />
-         <Outlet />
-         <Footer />
-      </div>
+      <>
+         {products.length > 0 ? (
+            <div className="App">
+               <Header />
+               <Outlet />
+               <Footer />
+            </div>
+         ) : (
+            <div className='App loading'>
+               <Loading />
+            </div>
+         )}
+      </>
    );
 };
 

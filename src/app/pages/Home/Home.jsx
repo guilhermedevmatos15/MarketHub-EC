@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 
 // * components
 import Hero from '../../components/section/Hero/Hero';
-import Options from '../../components/shared/Options/Options';
-import PromotionProduct from '../../components/shared/PromotionProduct/PromotionProduct';
+import Catalog from '../../components/section/Catalog/Catalog';
+import Card from '../../components/shared/Card/Card';
 
 // * style
 import './Home.scss';
@@ -64,32 +64,26 @@ const Home = () => {
 
    return (
       <main className="Home">
-         {products.length > 0 && (
-            <>
-               <Hero />
+         <Hero />
 
-               {productsByCateg.length > 0 && (
-                  <Options
-                     className="TrendingCategories"
-                     title="Trending Categories"
-                     choices={productsByCateg}
-                  />
-               )}
+         {productsByCateg.length > 0 && (
+            <Catalog
+               maxWidth='800px'
+               className="TrendingCategories"
+               title="Trending Categories"
+               choices={productsByCateg}
+            />
+         )}
 
-               {productsPromoteds.length > 0 && (
-                  <section className="promotions">
-                     <PromotionProduct
-                        type="small"
-                        product={productsPromoteds[0]}
-                     />
-                     <PromotionProduct
-                        type="small"
-                        product={productsPromoteds[1]}
-                        hurryUp={true}
-                     />
-                  </section>
-               )}
-            </>
+         {productsPromoteds.length > 0 && (
+            <section className="promotions">
+               <Card type="product" product={productsPromoteds[0]} />
+               <Card
+                  type="product"
+                  product={productsPromoteds[1]}
+                  hurryUp={true}
+               />
+            </section>
          )}
       </main>
    );
