@@ -1,0 +1,16 @@
+.Rating {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   &-star {
+      font-size: 1.1rem;
+
+      &-fill {
+         color: #ddaf3a;
+      }
+      &-border {
+         color: black;
+      }
+   }
+}

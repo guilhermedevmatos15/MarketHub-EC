@@ -1,0 +1,113 @@
+@import '../../../../styles/variables';
+
+.CardProduct {
+   position: relative;
+   width: 100%;
+   max-width: 260px;
+   height: 380px;
+   padding: 25px 30px;
+   background-color: white;
+   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+   border-radius: 16px;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   cursor: default;
+   user-select: none;
+
+   img {
+      width: auto;
+      max-width: 60%;
+      height: 120px;
+   }
+
+   h3 {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      font-weight: 500;
+   }
+
+   p {
+      font-size: 0.9rem;
+      opacity: 0.7;
+   }
+
+   &-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &-price {
+         font-size: 0.95rem;
+         font-weight: 500;
+      }
+
+      &-star-fill {
+         color: yellow;
+      }
+   }
+
+   &-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      %default-btn {
+         height: 35px;
+         min-width: auto;
+         max-width: none;
+      }
+
+      button:first-child {
+         @extend %default-btn;
+
+         width: 75%;
+         background-color: transparent;
+         border: 1px solid black;
+         
+         &:hover {
+            background-color: $color-01;
+            border: 1px solid $color-01;
+            color: white;
+         }
+      }
+      button:last-child {
+         @extend %default-btn;
+
+         width: 20%;
+         background-color: #494949;
+         color: white;
+
+         .btn-icon {
+            font-size: 1.08rem;
+         }
+
+         &:hover {
+            background-color: $color-02;
+            color: black;
+         }
+      }
+   }
+
+   &-popUp {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 45%;
+      min-width: 130px;
+      padding: 5px 0;
+      background-color: #68676B;
+      color: white;
+      font-size: 0.85rem;
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+   }
+}

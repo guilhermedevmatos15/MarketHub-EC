@@ -1,6 +1,10 @@
 import React, { useState, createContext, useEffect } from 'react';
 
+// * scripts
+import ajustingRatingProducts from '../utils/ajustingRatingProducts';
+
 export const Context = createContext();
+
 
 const ProductsContext = ({ children }) => {
    const [products, setProducts] = useState([]);
@@ -18,11 +22,14 @@ const ProductsContext = ({ children }) => {
             const response = await fetch(URL_all_products);
             const data = await response.json();
 
+            
             // get categories
             const responseCateg = await fetch(URL_all_categories);
             const dataCateg = await responseCateg.json();
+            
+            const productsAjusting = ajustingRatingProducts(data);
 
-            setProducts(data);
+            setProducts(productsAjusting);
             setCategories(dataCateg);
          } catch (e) {
             setProducts(false);

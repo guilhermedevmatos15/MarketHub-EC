@@ -68,7 +68,7 @@ const Home = () => {
 
          {productsByCateg.length > 0 && (
             <Catalog
-               maxWidth='800px'
+               maxWidth="800px"
                className="TrendingCategories"
                title="Trending Categories"
                choices={productsByCateg}
@@ -77,11 +77,21 @@ const Home = () => {
 
          {productsPromoteds.length > 0 && (
             <section className="promotions">
-               <Card type="product" product={productsPromoteds[0]} />
                <Card
-                  type="product"
-                  product={productsPromoteds[1]}
-                  hurryUp={true}
+                  data={{
+                     className: "promotion-card",
+                     type: "product",
+                     product: productsPromoteds[0],
+                     popUpType: "free-shipping",
+                  }}
+               />
+               <Card
+                  data={{
+                     className: "promotion-card",
+                     type: "product",
+                     product: productsPromoteds[1],
+                     popUpType: "free-shipping",
+                  }}
                />
             </section>
          )}

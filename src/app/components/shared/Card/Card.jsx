@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // * components
+import CardProduct from './CardProduct/CardProduct';
 
 // * style
-import './Card.scss';
 
 // * scripts
 
@@ -14,25 +14,22 @@ import './Card.scss';
 
 // * icons
 
-const Card = ({ type, product, hurryUp }) => {
+const Card = ({ data }) => {
    return (
       <>
-         {type === 'product' && (
-            <div className={`Card ${type}`}>
-               <p>{product.title.split(' ').slice(0, 3).join(' ')}</p>
-               <h3>
-                  just starting at ${product.price} {hurryUp && 'hurry up!'}
-               </h3>
-               <button className="btn">shop now</button>
-               <img src={product.image} alt="product" />
-            </div>
+         {data.type === 'product' && (
+            <CardProduct
+               className={data.className}
+               product={data.product}
+               popUpType={data.popUpType}
+            />
          )}
       </>
    );
 };
 
 Card.propTypes = {
-   type: PropTypes.string.isRequired,
+   data: PropTypes.object.isRequired,
 };
 
 export default Card;
