@@ -5,16 +5,17 @@ import Hero from '../../components/section/Hero/Hero';
 import Catalog from '../../components/section/Catalog/Catalog';
 import Card from '../../components/shared/Card/Card';
 import Banner from '../../components/section/Banner/Banner';
+import Form from '../../components/shared/Form/Form';
 
 // * style
 import './Home.scss';
 
 // * scripts
 import getRandomProductByCategory from '../../utils/getRandomProductByCategory';
+import getRandomNumber from '../../utils/getRandomNumber';
 
 // * contexts
 import { Context } from '../../contexts/ProductsContext';
-import getRandomNumber from '../../utils/getRandomNumber';
 
 // * img
 
@@ -53,10 +54,17 @@ const Home = () => {
                   'electronics'
                );
                const randomProductWomanClo = await getRandomProductByCategory(
-                  'jewelery'
+                  "women's clothing"
+               );
+               const randomProductManClo = await getRandomProductByCategory(
+                  "men's clothing"
                );
 
-               setProductsPromoteds([randomProductElec, randomProductWomanClo]);
+               setProductsPromoteds([
+                  randomProductElec,
+                  randomProductWomanClo,
+                  randomProductManClo,
+               ]);
             } catch (e) {
                console.log(e);
             }
@@ -88,7 +96,7 @@ const Home = () => {
          {productsPromoteds.length > 0 && (
             <Catalog
                type={undefined}
-               className='TopProducts'
+               className="TopProducts"
                maxWidth="100%"
                title="Top Products"
                choices={[
@@ -106,9 +114,18 @@ const Home = () => {
                         popUpType: 'free-shipping',
                      }}
                   />,
+                  <Card
+                     data={{
+                        type: 'product',
+                        product: productsPromoteds[2],
+                        popUpType: 'free-shipping',
+                     }}
+                  />,
                ]}
             />
          )}
+
+         <Form type="contact" />
       </main>
    );
 };

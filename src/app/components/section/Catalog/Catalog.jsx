@@ -21,7 +21,9 @@ const Catalog = ({ type, className, title, choices, maxWidth }) => {
 
          {!type && (
             <div className="catalog-choices" style={{ maxWidth }}>
-               {choices.map((value, index) => value)}
+               {choices.map((value, index) => (
+                  <div key={index}>{value}</div>
+               ))}
             </div>
          )}
 
