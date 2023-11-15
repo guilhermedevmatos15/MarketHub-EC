@@ -1,0 +1,11 @@
+.BannerProduct {
+   @media (max-width: 1005px) {
+      & {
+         &-info {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+         }
+      }
+   }
+}

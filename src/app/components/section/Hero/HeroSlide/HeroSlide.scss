@@ -1,5 +1,4 @@
 @import '../../../../styles/variables';
-@import '../../../../styles/text';
 
 .HeroSlide {
    position: absolute;
@@ -65,3 +64,5 @@
       }
    }
 }
+
+@import 'HeroSlide_rpsv.scss';

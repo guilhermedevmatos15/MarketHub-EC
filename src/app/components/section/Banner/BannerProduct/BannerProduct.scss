@@ -1,0 +1,47 @@
+@import '../../../../styles/variables';
+
+.BannerProduct {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap-reverse;
+   row-gap: 100px;
+   column-gap: 150px;
+
+   &-info {
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 15px;
+
+      h2 {
+         font-size: 1.8rem;
+         font-weight: 500;
+      }
+
+      p {
+         opacity: 0.8;
+      }
+
+      button {
+         background-color: darken($color-02, 5);
+         color: white;
+         font-weight: 500;
+
+         &:hover {
+            background-color: darken($color-02, 20);
+         }
+      }
+   }
+
+   img {
+      width: 100%;
+      max-width: 230px;
+      max-height: max-content;
+   }
+}
+
+@import 'BannerProduct_rpsv.scss';

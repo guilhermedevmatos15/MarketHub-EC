@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Hero from '../../components/section/Hero/Hero';
 import Catalog from '../../components/section/Catalog/Catalog';
 import Card from '../../components/shared/Card/Card';
+import Banner from '../../components/section/Banner/Banner';
 
 // * style
 import './Home.scss';
@@ -13,6 +14,7 @@ import getRandomProductByCategory from '../../utils/getRandomProductByCategory';
 
 // * contexts
 import { Context } from '../../contexts/ProductsContext';
+import getRandomNumber from '../../utils/getRandomNumber';
 
 // * img
 
@@ -68,6 +70,7 @@ const Home = () => {
 
          {productsByCateg.length > 0 && (
             <Catalog
+               type="product"
                maxWidth="800px"
                className="TrendingCategories"
                title="Trending Categories"
@@ -75,25 +78,36 @@ const Home = () => {
             />
          )}
 
+         <Banner
+            data={{
+               type: 'product',
+               product: products[getRandomNumber(0, products.length - 1)], // Get random product
+            }}
+         />
+
          {productsPromoteds.length > 0 && (
-            <section className="promotions">
-               <Card
-                  data={{
-                     className: "promotion-card",
-                     type: "product",
-                     product: productsPromoteds[0],
-                     popUpType: "free-shipping",
-                  }}
-               />
-               <Card
-                  data={{
-                     className: "promotion-card",
-                     type: "product",
-                     product: productsPromoteds[1],
-                     popUpType: "free-shipping",
-                  }}
-               />
-            </section>
+            <Catalog
+               type={undefined}
+               className='TopProducts'
+               maxWidth="100%"
+               title="Top Products"
+               choices={[
+                  <Card
+                     data={{
+                        type: 'product',
+                        product: productsPromoteds[0],
+                        popUpType: 'free-shipping',
+                     }}
+                  />,
+                  <Card
+                     data={{
+                        type: 'product',
+                        product: productsPromoteds[1],
+                        popUpType: 'free-shipping',
+                     }}
+                  />,
+               ]}
+            />
          )}
       </main>
    );

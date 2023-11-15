@@ -5,7 +5,6 @@ import HeroSlide from './HeroSlide/HeroSlide';
 
 // * style
 import './Hero.scss';
-import './Hero_rpsv.scss';
 
 // * scripts
 

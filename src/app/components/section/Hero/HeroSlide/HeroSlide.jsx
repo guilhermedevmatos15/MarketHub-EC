@@ -4,7 +4,6 @@ import React from 'react';
 
 // * style
 import './HeroSlide.scss';
-import './HeroSlide_rpsv.scss';
 
 // * scripts
 
