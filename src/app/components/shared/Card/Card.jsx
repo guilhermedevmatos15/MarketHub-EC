@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 // * components
 import CardProduct from './CardProduct/CardProduct';
+import CardProductPill from './CardProductPill/CardProductPill';
 
 // * style
 
@@ -14,14 +15,22 @@ import CardProduct from './CardProduct/CardProduct';
 
 // * icons
 
-const Card = ({ data }) => {
+const Card = ({ type, className, product, popUpType }) => {
    return (
       <>
-         {data.type === 'product' && (
+         {type === 'product' && (
             <CardProduct
-               className={data.className}
-               product={data.product}
-               popUpType={data.popUpType}
+               product={product}
+               className={className || ''}
+               popUpType={popUpType || ''}
+            />
+         )}
+
+         {type === 'productPill' && (
+            <CardProductPill
+               product={product}
+               className={className || ''}
+               popUpType={popUpType || ''}
             />
          )}
       </>
@@ -29,7 +38,7 @@ const Card = ({ data }) => {
 };
 
 Card.propTypes = {
-   data: PropTypes.object.isRequired,
+   type: PropTypes.object.isRequired,
 };
 
 export default Card;

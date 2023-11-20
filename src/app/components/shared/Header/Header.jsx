@@ -11,6 +11,7 @@ import './Header.scss';
 // * contexts
 
 // * img
+import Logo from '../../../assets/img/markethub-logo.png';
 
 // * icons
 import {
@@ -23,8 +24,10 @@ import { FiMenu } from 'react-icons/fi';
 const Header = () => {
    return (
       <header className="Header">
-         <img src="./img/markethub-logo.png" alt="Logo" />
+         <img src={Logo} alt="Logo MarketHub" />
+         
          <Navigation color="dark" direction="row" gap="30px" />
+
          <div className="header-interations">
             <AiOutlineSearch
                className="header-interations-icon"

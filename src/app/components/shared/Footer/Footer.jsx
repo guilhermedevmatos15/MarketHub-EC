@@ -11,6 +11,7 @@ import './Footer.scss';
 // * contexts
 
 // * img
+import Logo from '../../../assets/img/markethub-icon.png';
 
 // * icons
 import { AiOutlineWhatsApp, AiFillGithub, AiOutlineMail } from 'react-icons/ai';
@@ -18,8 +19,10 @@ import { AiOutlineWhatsApp, AiFillGithub, AiOutlineMail } from 'react-icons/ai';
 const Footer = () => {
    return (
       <footer className="Footer">
-         <img src="./img/marketHub-icon.png" alt="Icon logo MarketHub" />
+         <img src={Logo} alt="Icon logo MarketHub" />
+         
          <Navigation color="light" direction="row" gap="20px" />
+
          <div className="footer-social">
             <AiOutlineWhatsApp
                className="footer-social-icon"

@@ -18,7 +18,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const CardProduct = ({ className, product, popUpType }) => {
    return (
-      <div className={`Card CardProduct ${className}`}>
+      <div className={`Card CardProduct ${className && className}`}>
          <img src={product.image} alt="product" />
          <h3>{product.title.split(' ').slice(0, 3).join(' ')}</h3>
          <p className="truncate--2">{product.description}</p>

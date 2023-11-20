@@ -5,7 +5,6 @@ import ajustingRatingProducts from '../utils/ajustingRatingProducts';
 
 export const Context = createContext();
 
-
 const ProductsContext = ({ children }) => {
    const [products, setProducts] = useState([]);
    const [categories, setCategories] = useState([]);
@@ -22,15 +21,16 @@ const ProductsContext = ({ children }) => {
             const response = await fetch(URL_all_products);
             const data = await response.json();
 
-            
             // get categories
             const responseCateg = await fetch(URL_all_categories);
             const dataCateg = await responseCateg.json();
-            
+
             const productsAjusting = ajustingRatingProducts(data);
 
             setProducts(productsAjusting);
             setCategories(dataCateg);
+
+            console.log(productsAjusting);
          } catch (e) {
             setProducts(false);
             setCategories(false);
@@ -41,7 +41,9 @@ const ProductsContext = ({ children }) => {
    }, []);
 
    return (
-      <Context.Provider value={{ products, setProducts, categories, setCategories }}>
+      <Context.Provider
+         value={{ products, setProducts, categories, setCategories }}
+      >
          {children}
       </Context.Provider>
    );

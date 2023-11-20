@@ -15,7 +15,7 @@ import './Loading.scss';
 
 import { GoDesktopDownload } from 'react-icons/go';
 
-const Loading = ({ type }) => {
+const Loading = () => {
    return (
       <div className="Loading">
          <GoDesktopDownload className="loading-icon" />

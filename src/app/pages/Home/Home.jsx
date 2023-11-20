@@ -101,25 +101,19 @@ const Home = () => {
                title="Top Products"
                choices={[
                   <Card
-                     data={{
-                        type: 'product',
-                        product: productsPromoteds[0],
-                        popUpType: 'free-shipping',
-                     }}
+                     type="product"
+                     product={productsPromoteds[0]}
+                     popUpType="free-shipping"
                   />,
                   <Card
-                     data={{
-                        type: 'product',
-                        product: productsPromoteds[1],
-                        popUpType: 'free-shipping',
-                     }}
+                     type="product"
+                     product={productsPromoteds[1]}
+                     popUpType="free-shipping"
                   />,
                   <Card
-                     data={{
-                        type: 'product',
-                        product: productsPromoteds[2],
-                        popUpType: 'free-shipping',
-                     }}
+                     type="product"
+                     product={productsPromoteds[2]}
+                     popUpType="free-shipping"
                   />,
                ]}
             />

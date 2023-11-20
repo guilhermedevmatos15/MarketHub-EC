@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // * components
 import FormContact from './FormContact/FormContact';
+import FormOrder from './FormOrder/FormOrder';
 
 // * style
 import './Form.scss';
@@ -21,6 +22,10 @@ const Form = ({ type, className }) => {
       <>
          {type === 'contact' && (
             <FormContact className={className} />
+         )}
+
+         {type === 'order' && (
+            <FormOrder className={className} />
          )}
       </>
    );
