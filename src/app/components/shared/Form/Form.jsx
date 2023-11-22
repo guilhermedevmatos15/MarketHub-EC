@@ -17,7 +17,7 @@ import './Form.scss';
 
 // * icons
 
-const Form = ({ type, className }) => {
+const Form = ({ type, className, available }) => {
    return (
       <>
          {type === 'contact' && (
@@ -25,7 +25,7 @@ const Form = ({ type, className }) => {
          )}
 
          {type === 'order' && (
-            <FormOrder className={className} />
+            <FormOrder className={className} available={available} />
          )}
       </>
    );

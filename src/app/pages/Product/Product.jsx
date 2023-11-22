@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 // * components
-import Rating from '../../components/shared/Rating/Rating';
-import Form from '../../components/shared/Form/Form';
+import MainSection from './MainSection/MainSection';
+import AboutSection from './AboutSection/AboutSection';
 import Slide from '../../components/section/Slide/Slide';
 import Card from '../../components/shared/Card/Card';
 
@@ -37,43 +37,9 @@ const Product = () => {
             <>
                {product?.title ? ( // Segunto teste, ver se o produto no qual ID está na URL existe.
                   <div className="Product">
-                     <section className="Product-main">
-                        <div className="Product-container-image">
-                           <img src={product?.image} alt={product?.title} />
-                        </div>
+                     <MainSection product={product} />
 
-                        <div className="Product-interations">
-                           <div className="Product-info">
-                              <p className="Product-category">
-                                 {product?.category}
-                              </p>
-                              <h2 className="Product-title truncate--2">
-                                 {product?.title}
-                              </h2>
-                              <Rating rate={product?.rating?.rate} />
-                           </div>
-
-                           <div className="Product-buy">
-                              <p>${Number(product?.price).toFixed(2)}</p>
-                              <p>
-                                 <strong>Available:</strong>{' '}
-                                 {product?.rating?.cont}
-                              </p>
-                              {/* Simulando produtos disponíveis */}
-                              <div className="Product-order">
-                                 <Form type="order" />
-                              </div>
-                           </div>
-                        </div>
-                     </section>
-
-                     <section className="Product-about">
-                        <h3>Description</h3>
-
-                        <p className="Product-description">
-                           {product?.description}
-                        </p>
-                     </section>
+                     <AboutSection product={product} />
 
                      <Slide
                         type="scroll"

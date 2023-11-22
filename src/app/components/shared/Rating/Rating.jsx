@@ -15,7 +15,7 @@ import setAccordingly from '../../../utils/setAccordingly';
 // * icons
 import { MdOutlineStarBorder, MdOutlineStar } from 'react-icons/md';
 
-const Rating = ({ rate, sizeStar }) => {
+const Rating = ({ rate, sizeStar, className }) => {
    const rateCeil = Math.ceil(rate);
 
    const sizeStarOptions = ['small', 'big'];
@@ -25,7 +25,11 @@ const Rating = ({ rate, sizeStar }) => {
    const arrayStartsBorder = Array.from({ length: 5 - rateCeil });
 
    return (
-      <div className={`Rating ${setAccordingly(sizeStar, sizeStarOptions)}`}>
+      <div
+         className={`Rating ${setAccordingly(sizeStar, sizeStarOptions)} ${
+            className && className
+         }`}
+      >
          {arrayStarsFill.map((_, index) => (
             <MdOutlineStar
                className="Rating-star Rating-star-fill"

@@ -29,8 +29,6 @@ const ProductsContext = ({ children }) => {
 
             setProducts(productsAjusting);
             setCategories(dataCateg);
-
-            console.log(productsAjusting);
          } catch (e) {
             setProducts(false);
             setCategories(false);

@@ -38,7 +38,7 @@ const Card = ({ type, className, product, popUpType }) => {
 };
 
 Card.propTypes = {
-   type: PropTypes.object.isRequired,
+   type: PropTypes.string.isRequired,
 };
 
 export default Card;

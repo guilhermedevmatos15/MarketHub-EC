@@ -22,13 +22,20 @@ const Slide = ({ type, title, elements, elementsArrData }) => {
       <section className="Slide">
          <h3 className="Slide-title">{title}</h3>
 
-         <div className='Slide-slider'>
-            {elements && elements.map((element) => element)}
+         <div className="Slide-slider">
+            {elements &&
+               elements.map((element, index) => {
+                  return (
+                     <div className="slider-item" key={index}>
+                        {element}
+                     </div>
+                  );
+               })}
          </div>
 
          <div className="Slide-controls">
-         <MdOutlineKeyboardArrowLeft className='icon' />
-         <MdOutlineKeyboardArrowRight className='icon' />
+            <MdOutlineKeyboardArrowLeft className="icon" />
+            <MdOutlineKeyboardArrowRight className="icon" />
          </div>
       </section>
    );

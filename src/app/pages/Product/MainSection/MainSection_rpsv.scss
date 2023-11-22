@@ -1,0 +1,43 @@
+.MainSection {
+   @media (max-width: 1200px) {
+      & {
+         .container-image {
+            padding-right: 120px;
+         }
+      }
+   }
+
+   @media (max-width: 900px) {
+      & {
+         margin-top: 30px;
+         height: auto;
+         flex-direction: column;
+         gap: 45px;
+
+         .container-image {
+            $heigth: 320px;
+
+            width: 100%;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+
+            img {
+               max-height: $heigth / 1.5;
+            }
+         }
+
+         .info {
+            width: 100%;
+            height: auto;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+
+            .form-product {
+               justify-content: center;
+            }
+         }
+      }
+   }
+}

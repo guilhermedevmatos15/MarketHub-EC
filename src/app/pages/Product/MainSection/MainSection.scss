@@ -1,0 +1,59 @@
+.MainSection {
+   $heigth: 320px;
+
+   margin-top: 50px;
+   height: $heigth;
+   padding: 0 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   .container-image {
+      padding-right: 180px;
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-content: center;
+
+      img {
+         max-width: 100%;
+         width: auto;
+         max-height: $heigth / 1.2;
+      }
+   }
+
+   .info {
+      width: 50%;
+      height: $heigth;
+      text-align: left;
+      text-transform: capitalize;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .category {
+         font-size: 0.9rem;
+         opacity: 0.8;
+      }
+
+      .title {
+         width: 90%;
+         max-width: 550px;
+         font-size: 1.8rem;
+         line-height: 2.6rem;
+         font-weight: 500;
+      }
+
+      .product-rating {
+         justify-content: flex-start;
+      }
+
+      .price {
+         font-weight: 400;
+         font-size: 1.5rem;
+      }
+   }
+}
+
+@import './MainSection_rpsv.scss';

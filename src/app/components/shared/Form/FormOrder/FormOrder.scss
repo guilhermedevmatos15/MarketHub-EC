@@ -1,5 +1,53 @@
+@import '../../../../styles/variables';
+
 .FormOrder {
    width: auto;
    margin: 0;
    padding: 0;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 20px;
+
+   .cont-control {
+      $size: 35px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+         $bg-color:#d2d2d2;
+
+         min-width: initial;
+         max-width: initial;
+         width: $size;
+         height: $size;
+         padding: 0;
+         background-color: $bg-color;
+
+         &:hover {
+            background-color: darken($bg-color, 15);
+         }
+      }
+
+      span {
+         cursor: default;
+         width: $size - 10px;
+         height: $size;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+   }
+
+   > button {
+      min-width: 120px;
+      background-color: $color-01;
+      color: white;
+
+      &:hover {
+         background-color: darken($color-01, 10);
+      }
+   }
 }
