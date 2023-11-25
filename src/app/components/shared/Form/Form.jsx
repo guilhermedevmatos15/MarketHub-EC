@@ -17,15 +17,18 @@ import './Form.scss';
 
 // * icons
 
-const Form = ({ type, className, available }) => {
+const Form = ({ type, className, available, amount, setAmount }) => {
    return (
       <>
-         {type === 'contact' && (
-            <FormContact className={className} />
-         )}
+         {type === 'contact' && <FormContact className={className} />}
 
          {type === 'order' && (
-            <FormOrder className={className} available={available} />
+            <FormOrder
+               className={className}
+               available={available}
+               amount={amount}
+               setAmount={setAmount}
+            />
          )}
       </>
    );
@@ -34,6 +37,5 @@ const Form = ({ type, className, available }) => {
 Form.propTypes = {
    type: PropTypes.string.isRequired,
 };
-
 
 export default Form;

@@ -14,15 +14,13 @@ import './FormOrder.scss';
 // * icons
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 
-const FormOrder = ({ className, available }) => {
-   const [cont, setCont] = useState(1);
-
+const FormOrder = ({ className, available, amount, setAmount }) => {
    const decrement = () => {
-      setCont((prevCont) => (prevCont - 1 < 1 ? 1 : prevCont - 1));
+      setAmount((prevCont) => (prevCont - 1 < 1 ? 1 : prevCont - 1));
    };
 
    const increment = () => {
-      setCont((prevCont) =>
+      setAmount((prevCont) =>
          prevCont + 1 > Number(available) ? Number(available) : prevCont + 1
       );
    };
@@ -37,7 +35,7 @@ const FormOrder = ({ className, available }) => {
                <FaMinus className="icon" />
             </button>
 
-            <span>{cont}</span>
+            <span>{amount}</span>
 
             <button className="btn" onClick={(e) => increment()}>
                <FaPlus className="icon" />
