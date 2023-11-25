@@ -1,0 +1,49 @@
+@import '../../../styles/variables';
+
+.Slide {
+   margin: 180px auto 0 auto;
+   width: 100%;
+   max-width: 1300px;
+   padding: 0 30px;
+   text-align: center;
+
+   &-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+   }
+
+   .swiper {
+      margin-top: 60px;
+      padding-bottom: 60px;
+
+      .swiper-slide {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+   } 
+
+   // &-slider {
+   //    padding: 0 20px 40px 20px;
+   //    max-width: 100%;
+   //    display: flex;
+   //    justify-content: flex-start;
+   //    align-items: center;
+   //    gap: 20px;
+   //    overflow-x: scroll;
+   //    user-select: none;
+   //    cursor: default;
+
+   //    &::-webkit-scrollbar {
+   //       height: 13px;
+   //       border: 1px solid #00000030;
+   //       border-radius: 10px;
+   //    }
+
+   //    &::-webkit-scrollbar-thumb {
+   //       background: $color-05;
+   //       border-radius: 20px;
+   //       cursor: grab;
+   //    }
+   // }
+}

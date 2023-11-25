@@ -45,9 +45,15 @@ const Product = () => {
                         type="scroll"
                         title="You may also like"
                         elements={products
-                           .filter((product) => product.id !== id) // Removendo dessa lista o produto que já está sendo principal na página
-                           .map((product) => (
-                              <Card type="productPill" product={product} /> // Agora sim, pegando cada produto e renderizando em forma de <Card />
+                           .filter((i, index) => { // Filtrando apenas os 5 primeiros produtos
+                              return index < 8 ? true : false;
+                           })
+                           .map((product, index) => ( // Agora sim enviando em forma de Card para o Slide
+                              <Card
+                                 type="product"
+                                 product={product}
+                                 key={index}
+                              />
                            ))}
                      />
                   </div>

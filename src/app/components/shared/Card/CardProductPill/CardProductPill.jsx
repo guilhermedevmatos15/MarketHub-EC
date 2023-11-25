@@ -20,8 +20,8 @@ const CardProductPill = ({ className, product }) => {
          <img src={product.image} alt={product.title} />
 
          <div className="info">
-            <span className="info-title">
-               {product.title.split(' ').slice(0, 3)}
+            <span className="info-title truncate--1">
+               {product.title.split(' ').slice(0, 3).join(' ')}
             </span>
 
             <span className="info-price">

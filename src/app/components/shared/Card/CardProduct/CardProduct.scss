@@ -2,8 +2,9 @@
 
 .CardProduct {
    position: relative;
-   width: 100%;
-   max-width: 260px;
+   width: auto;
+   min-width: 260px;
+   max-width: 280px;
    height: 380px;
    padding: 25px 30px;
    background-color: white;
@@ -15,7 +16,6 @@
    justify-content: space-between;
    align-items: center;
    cursor: default;
-   user-select: none;
    transition: $transition;
 
    &:hover {
