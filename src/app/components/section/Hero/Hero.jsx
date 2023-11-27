@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 // * components
-import HeroSlide from './HeroSlide/HeroSlide';
+import Slider from '../../shared/Slider/Slider';
 
 // * style
 import './Hero.scss';
@@ -14,65 +14,45 @@ import { Context } from '../../../contexts/ProductsContext';
 // * img
 
 // * icons
-import { BsCircle, BsFillCircleFill } from 'react-icons/bs';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const Hero = () => {
    const { products } = useContext(Context);
 
-   const productsSlides = products.slice(0, 5);
+   // useEffect(() => {
+   //    const timer = setTimeout(() => {}, 5000);
 
-   const [currentIndex, setCurrentIndex] = useState(0);
-
-   useEffect(() => {
-      const timer = setTimeout(() => {
-         if (currentIndex + 1 === productsSlides.length) {
-            setCurrentIndex(0);
-         } else {
-            setCurrentIndex(currentIndex + 1);
-         }
-      }, 5000);
-
-      return () => {
-         // Limpar o temporizador quando o componente for desmontado
-         clearTimeout(timer);
-      };
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [currentIndex]);
+   //    return () => {
+   //       // Limpar o temporizador quando o componente for desmontado
+   //       clearTimeout(timer);
+   //    };
+   //    // eslint-disable-next-line react-hooks/exhaustive-deps
+   // }, []);
 
    return (
       <section className="Hero">
-         <div className="hero-slider">
-            {productsSlides.map((product, index) => (
-               <HeroSlide
-                  title={product.title}
-                  description={product.description}
-                  image={<img src={product.image} alt={product.title} />}
-                  id={index}
-                  currentIndex={currentIndex}
-                  key={product.id}
-               />
-            ))}
-
-            <div className="hero-slider-controls">
-               {productsSlides.map((value, index) => (
-                  <div
-                     className={`hero-slider-controls-control ${
-                        currentIndex === index ? 'active' : ''
-                     }`}
-                     key={index}
-                  >
-                     {currentIndex === index ? (
-                        <BsFillCircleFill className="hero-slider-controls-control-icon" />
-                     ) : (
-                        <BsCircle
-                           className="hero-slider-controls-control-icon"
-                           onClick={(e) => setCurrentIndex(index)}
-                        />
-                     )}
+         <Slider
+            perView={1}
+            elements={products.slice(0, 4).map((product) => (
+               <div className="slider-item">
+                  <div className="slider-item-content">
+                     <p className="slider-item-message">sale up to 30% off</p>
+                     <h2 className="slider-item-title truncate--2">
+                        {product.title}
+                     </h2>
+                     <p className="slider-item-description truncate--3">
+                        {product.description}
+                     </p>
+                     <button className="btn">
+                        Shop Now <AiOutlineArrowRight className="btn-icon" />
+                     </button>
                   </div>
-               ))}
-            </div>
-         </div>
+                  <div className="slider-item-image">
+                     <img src={product.image} alt={product.title} />
+                  </div>
+               </div>
+            ))}
+         />
       </section>
    );
 };

@@ -1,0 +1,18 @@
+@import '../../../styles/variables';
+
+.Slider {
+   width: 100%;
+   
+   .swiper {
+      width: 100%;
+      max-width: 1300px;
+      margin: 60px auto 0 auto;
+      padding-bottom: 60px;
+
+      .swiper-slide {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+   }
+}

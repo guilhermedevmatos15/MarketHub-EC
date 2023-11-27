@@ -13,6 +13,10 @@ import './app/styles/index.scss';
 // * context
 import { Context } from './app/contexts/ProductsContext';
 
+// * slider config
+import { register } from 'swiper/element/bundle';
+register();
+
 const App = () => {
    const { products } = useContext(Context);
 

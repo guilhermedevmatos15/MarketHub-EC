@@ -1,11 +1,44 @@
 .Hero {
    @media (max-width: 1200px) {
       & {
-         height: 600px;
+         .slider-item {
+            flex-direction: column-reverse;
+            gap: 50px;
 
-         .hero-slider {
-            height: 600px;
+            .slider-item-content {
+               width: 100%;
+               padding: 0 30px;
+               text-align: center;
+
+               .slider-item-description,
+               .slider-item-title {
+                  margin: 10px auto 0 auto;
+               }
+
+               button {
+                  margin: 15px auto 0 auto;
+               }
+            }
+
+            .slider-item-image {
+               width: 100%;
+               padding: 0;
+               justify-content: center;
+
+               img {
+                  width: 100%;
+                  height: auto;
+                  max-height: none;
+                  max-width: 120px;
+               }
+            }
          }
+      }
+   }
+
+   @media (max-width: 750px) {
+      & {
+         padding: 0 15px;
       }
    }
 }

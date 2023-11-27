@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 // * components
 import MainSection from './MainSection/MainSection';
 import AboutSection from './AboutSection/AboutSection';
-import Slide from '../../components/section/Slide/Slide';
-import Card from '../../components/shared/Card/Card';
+import SliderSection from './SliderSection/SliderSection';
 
 // * style
 import './Product.scss';
@@ -23,6 +22,7 @@ import { Context } from '../../contexts/ProductsContext';
 const Product = () => {
    const { id } = useParams();
    const { products } = useContext(Context);
+   
    const [product, setProduct] = useState({});
 
    useEffect(() => {
@@ -41,21 +41,7 @@ const Product = () => {
 
                      <AboutSection product={product} />
 
-                     <Slide
-                        type="scroll"
-                        title="You may also like"
-                        elements={products
-                           .filter((i, index) => { // Filtrando apenas os 5 primeiros produtos
-                              return index < 8 ? true : false;
-                           })
-                           .map((product, index) => ( // Agora sim enviando em forma de Card para o Slide
-                              <Card
-                                 type="product"
-                                 product={product}
-                                 key={index}
-                              />
-                           ))}
-                     />
+                     <SliderSection products={products} />
                   </div>
                ) : (
                   <div className="Product error">
