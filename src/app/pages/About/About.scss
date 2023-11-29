@@ -1,0 +1,88 @@
+@import '../../styles/variables';
+
+.About {
+   padding: 0 25px;
+
+   .select-language {
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      h3 {
+         font-weight: 400;
+         font-size: 1.15rem;
+      }
+
+      .options {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-wrap: wrap;
+         gap: 20px;
+      }
+
+      button {
+         font-weight: 500;
+      }
+
+      .btn-usa {
+         $red: #e02329;
+         $blue: #418ed5;
+         background: linear-gradient(90deg, $red, $blue);
+         color: white;
+
+         &:hover {
+            background: linear-gradient(90deg, darken($red, 10), darken($blue, 10));
+         }
+      }
+
+      .btn-brazil {
+         background-color: rgb(23, 173, 23);
+         color: white;
+
+         &:hover {
+            background-color: darken(green, 2);
+         }
+      }
+   }
+
+   section {
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      padding: 30px;
+      border-radius: 20px;
+      background-color: rgb(221, 221, 221);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      
+      h2 {
+         font-size: 1.7rem;
+         font-weight: 500;
+      }
+
+      img {
+         width: 80px;
+      }
+
+      .text {
+         font-family: $font-serif;
+         font-weight: 500;
+         font-size: 1rem;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         gap: 15px;
+      }
+   }
+}
