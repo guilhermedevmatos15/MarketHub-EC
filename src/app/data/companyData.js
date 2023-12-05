@@ -1,4 +1,4 @@
-const companyInfo = {
+const companyData = {
    name: 'Market Hub',
    description:
       'Market Hub: Elevating Shopping Experiences, Where Everything Finds You!',
@@ -9,4 +9,4 @@ const companyInfo = {
    location: '14 Greenroad 31.',
 };
 
-export default companyInfo;
+export default companyData;

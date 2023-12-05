@@ -51,8 +51,8 @@ const About = () => {
                   <p>
                      I have been wanting to develop this project for a while, an
                      ecommerce to train React skills. This one It will probably
-                     be the last project before moving on ahead on the
-                     schedule...
+                     be the last project before moving on forward in programming
+                     studies...
                   </p>
                   <p>
                      Visit my gitHub:{' '}
@@ -80,7 +80,7 @@ const About = () => {
                      Este projeto eu tenho desejado desenvolve-lo faz um tempo,
                      um ecommerce para treinar as habilidades de React. Este
                      provavelmente será o último projeto antes de seguir em
-                     frente na programação...
+                     frente nos estudos em programação...
                   </p>
                   <p>
                      Visite meu gitHub:{' '}

@@ -6,7 +6,7 @@ import React from 'react';
 import './FormContact.scss';
 
 // * scripts
-import companyInfo from '../../../../utils/companyInfo';
+import companyData from '../../../../data/companyData';
 
 // * contexts
 
@@ -26,21 +26,21 @@ const FormContact = ({ className }) => {
 
             <div className="Form-info">
                <MdOutlineMail className="Form-info-icon" />
-               <span>{companyInfo.email}</span>
+               <span>{companyData.email}</span>
             </div>
             <div className="Form-info">
                <BsTelephone className="Form-info-icon" />
-               <span>{companyInfo.telephone}</span>
+               <span>{companyData.telephone}</span>
             </div>
             <div className="Form-info">
                <IoMdTime className="Form-info-icon" />
                <span>
-                  {companyInfo.timeOpening} : {companyInfo.timeClosing}
+                  {companyData.timeOpening} : {companyData.timeClosing}
                </span>
             </div>
             <div className="Form-info">
                <FaRegBuilding className="Form-info-icon" />
-               <span>{companyInfo.location}</span>
+               <span>{companyData.location}</span>
             </div>
          </div>
       );

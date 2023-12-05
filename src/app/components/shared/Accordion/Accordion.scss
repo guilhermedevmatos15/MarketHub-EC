@@ -1,0 +1,53 @@
+@import '../../../styles/variables';
+
+.Accordion {
+   $border: 1px solid #808080c4;
+   $border-color: 1px solid $color-01;
+   $border-transparent: 1px solid transparent;
+
+   padding: 20px 15px;
+   border-top: $border-transparent;
+   border-right: $border-transparent;
+   border-bottom: $border;
+   border-left: $border-transparent;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 20px;
+   transition: $transition;
+   
+   &:hover {
+      border: $border-color;
+      border-radius: 10px;
+   }
+   
+   .title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: $transition;
+      user-select: none;
+
+      h3 {
+         max-width: 85%;
+         font-size: 1.2rem;
+         font-weight: 600;
+      }
+
+      .icon {
+         font-size: 1.15rem;
+         transition: $transition-short;
+
+         &.active {
+            transform: rotate(180deg);
+         }
+      }
+   }
+
+   .text {
+      font-size: 1rem;
+   }
+}

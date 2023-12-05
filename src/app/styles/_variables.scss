@@ -8,6 +8,9 @@ $color-04: #fc8a80;
 $color-05: #fd4e6d;
 
 $transition-duration: 0.5s;
+$transition-duration-short: 0.3s;
+
 $transition: all $transition-duration;
+$transition-short: all $transition-duration-short;
 
 $header-height: 125px;
