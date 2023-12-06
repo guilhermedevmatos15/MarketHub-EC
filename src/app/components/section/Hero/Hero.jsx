@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 // * components
 import Slider from '../../shared/Slider/Slider';
@@ -19,16 +20,6 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 const Hero = () => {
    const { products } = useContext(Context);
 
-   // useEffect(() => {
-   //    const timer = setTimeout(() => {}, 5000);
-
-   //    return () => {
-   //       // Limpar o temporizador quando o componente for desmontado
-   //       clearTimeout(timer);
-   //    };
-   //    // eslint-disable-next-line react-hooks/exhaustive-deps
-   // }, []);
-
    return (
       <section className="Hero">
          <Slider
@@ -43,9 +34,11 @@ const Hero = () => {
                      <p className="slider-item-description truncate--3">
                         {product.description}
                      </p>
-                     <button className="btn">
-                        Shop Now <AiOutlineArrowRight className="btn-icon" />
-                     </button>
+                     <Link className='Link no-underline color-black' to={`product/${product.id}`}>
+                        <button className="btn">
+                           Shop Now <AiOutlineArrowRight className="btn-icon" />
+                        </button>
+                     </Link>
                   </div>
                   <div className="slider-item-image">
                      <img src={product.image} alt={product.title} />

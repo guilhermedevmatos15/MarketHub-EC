@@ -1,5 +1,5 @@
 .MainSection {
-   $heigth: 320px;
+   $heigth: 280px;
 
    margin-top: 50px;
    height: $heigth;
@@ -18,7 +18,7 @@
       img {
          max-width: 100%;
          width: auto;
-         max-height: $heigth / 1.2;
+         max-height: $heigth / 1.1;
       }
    }
 

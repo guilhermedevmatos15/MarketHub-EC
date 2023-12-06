@@ -4,6 +4,7 @@ import React from 'react';
 
 // * style
 import './Navigation.scss';
+import { Link } from 'react-router-dom';
 
 // * scripts
 
@@ -29,19 +30,16 @@ const Navigation = ({ fontSize, color, direction, gap }) => {
             }`}
          >
             <li>
-               <a href="#">Home</a>
+               <Link to='/'>Home</Link>
             </li>
             <li>
-               <a href="#">Categories</a>
+               <Link to='/categories'>Categories</Link>
             </li>
             <li>
-               <a href="#">About</a>
+               <Link to='/about'>About</Link>
             </li>
             <li>
-               <a href="#">FAQ</a>
-            </li>
-            <li>
-               <a href="#">Contact</a>
+               <Link to='/faq'>FAQ</Link>
             </li>
          </ul>
       </nav>

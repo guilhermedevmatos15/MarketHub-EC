@@ -4,6 +4,7 @@ import React from 'react';
 
 // * style
 import './BannerProduct.scss';
+import { Link } from 'react-router-dom';
 
 // * scripts
 
@@ -19,7 +20,9 @@ const BannerProduct = ({ className, product }) => {
          <div className="BannerProduct-info">
             <h2 className='truncate--2'>{product.title}</h2>
             <p className="truncate--3">{product.description}</p>
-            <button className="btn">buy now</button>
+            <Link className='Link no-underline color-white' to={`product/${product.id}`}>
+               <button className="btn">buy now</button>
+            </Link>
          </div>
 
          <img src={product.image} alt={product.title} />

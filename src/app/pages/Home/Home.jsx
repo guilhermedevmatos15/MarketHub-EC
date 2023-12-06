@@ -26,6 +26,7 @@ const Home = () => {
 
    const [productsByCateg, setProductsByCateg] = useState([]);
    const [productsPromoteds, setProductsPromoteds] = useState([]);
+   const [productBanner, setProductBanner] = useState(0);
 
    useEffect(() => {
       if (products.length > 0) {
@@ -69,6 +70,9 @@ const Home = () => {
                console.log(e);
             }
          })();
+
+         // get random product by banner
+         setProductBanner(getRandomNumber(0, products.length - 1));
       }
    }, [products, categories]);
 
@@ -89,7 +93,7 @@ const Home = () => {
          <Banner
             data={{
                type: 'product',
-               product: products[getRandomNumber(0, products.length - 1)], // Get random product
+               product: products[productBanner],
             }}
          />
 

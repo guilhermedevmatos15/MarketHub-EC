@@ -7,14 +7,16 @@ import Rating from '../../Rating/Rating';
 import './CardProduct.scss';
 
 // * scripts
+import scrollToTop from '../../../../utils/scrollToTop';
 
 // * contexts
 
 // * img
 
 // * icons
-import { MdOutlineLocalShipping } from "react-icons/md";
+import { MdOutlineLocalShipping } from 'react-icons/md';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const CardProduct = ({ className, product, popUpType }) => {
    return (
@@ -24,12 +26,23 @@ const CardProduct = ({ className, product, popUpType }) => {
          <p className="truncate--2">{product.description}</p>
 
          <div className="CardProduct-info">
-            <span className="CardProduct-info-price">${product.price.toFixed(2)}</span>
+            <span className="CardProduct-info-price">
+               ${product.price.toFixed(2)}
+            </span>
             <Rating rate={product.rating.rate} />
          </div>
 
          <div className="CardProduct-buttons">
-            <button className="btn">more details</button>
+            <Link
+               to={`/product/${product.id}`}
+               className="Link no-underline"
+               onClick={(e) => {
+                  scrollToTop();
+               }}
+            >
+               <button className="btn">more details</button>
+            </Link>
+
             <button className="btn">
                <AiOutlineShoppingCart className="btn-icon" />
             </button>
