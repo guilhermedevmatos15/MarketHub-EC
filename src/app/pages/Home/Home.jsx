@@ -5,7 +5,7 @@ import Hero from '../../components/section/Hero/Hero';
 import Catalog from '../../components/section/Catalog/Catalog';
 import Card from '../../components/shared/Card/Card';
 import Banner from '../../components/section/Banner/Banner';
-import Form from '../../components/shared/Form/Form';
+import Contact from '../../components/section/Contact/Contact';
 
 // * style
 import './Home.scss';
@@ -24,32 +24,12 @@ import { Context } from '../../contexts/ProductsContext';
 const Home = () => {
    const { products, categories } = useContext(Context);
 
-   const [productsByCateg, setProductsByCateg] = useState([]);
    const [productsPromoteds, setProductsPromoteds] = useState([]);
    const [productBanner, setProductBanner] = useState(0);
 
    useEffect(() => {
       if (products.length > 0) {
          (async () => {
-            const newProducts = Array(4).fill(null);
-
-            for (let i in categories) {
-               if (categories[i] !== undefined) {
-                  const category = categories[i];
-
-                  for (let product of products) {
-                     if (
-                        product.category === category &&
-                        newProducts[i] === null
-                     ) {
-                        newProducts[i] = product;
-                     }
-                  }
-               }
-            }
-
-            setProductsByCateg(newProducts);
-
             try {
                const randomProductElec = await getRandomProductByCategory(
                   'electronics'
@@ -80,22 +60,14 @@ const Home = () => {
       <main className="Home">
          <Hero />
 
-         {productsByCateg.length > 0 && (
-            <Catalog
-               type="product"
-               maxWidth="800px"
-               className="TrendingCategories"
-               title="Trending Categories"
-               choices={productsByCateg}
-            />
-         )}
-
-         <Banner
-            data={{
-               type: 'product',
-               product: products[productBanner],
-            }}
+         <Catalog
+            className="TrendingCategories"
+            type="categories"
+            title="Trending Categories"
+            maxWidth="800px"
          />
+
+         <Banner type="product" product={products[productBanner]} />
 
          {productsPromoteds.length > 0 && (
             <Catalog
@@ -123,7 +95,7 @@ const Home = () => {
             />
          )}
 
-         <Form type="contact" />
+         <Contact />
       </main>
    );
 };

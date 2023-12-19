@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+
+.Categorie {
+   margin-top: 60px;
+   padding: 0 30px;
+
+   h2 {
+      text-transform: capitalize;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 500;
+   }
+
+   hr {
+      margin: 10px auto 10px auto;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid rgba($color-01, 0.8);
+      border-radius: 2px;
+   }
+
+   > div {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 100px;
+
+      .categorie-filter {
+         position: sticky;
+         top: $header-height;
+      }
+
+      .categorie-products {
+         padding: 0 50px;
+         width: auto;
+         max-width: 700px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-wrap: wrap;
+         gap: 30px;
+      }
+   }
+
+   .all-categories {
+      margin-top: 200px;
+   }
+}
+
+@import 'Categorie_rspv.scss';

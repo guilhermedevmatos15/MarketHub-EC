@@ -1,0 +1,24 @@
+.Categorie {
+   @media (max-width: 760px) {
+      & {
+         > div {
+            gap: 0;
+         }
+      }
+   }
+
+   @media (max-width: 600px) {
+      & {
+         > div {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 40px;
+
+            .categorie-filter {
+               position: static;
+            }
+         }
+      }
+   }
+}

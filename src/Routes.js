@@ -7,6 +7,7 @@ import Home from './app/pages/Home/Home';
 import Product from './app/pages/Product/Product';
 import About from './app/pages/About/About';
 import Faq from './app/pages/Faq/Faq';
+import Categorie from './app/pages/Categorie/Categorie';
 
 const Router = createBrowserRouter([
    {
@@ -15,11 +16,11 @@ const Router = createBrowserRouter([
       children: [
          {
             path: '/',
-            element: <Home />
+            element: <Home />,
          },
          {
             path: '/product/:id',
-            element: <Product />
+            element: <Product />,
          },
          {
             path: 'about',
@@ -28,7 +29,11 @@ const Router = createBrowserRouter([
          {
             path: 'faq',
             element: <Faq />,
-         }
+         },
+         {
+            path: 'categories/:name',
+            element: <Categorie />,
+         },
       ],
    },
 ]);

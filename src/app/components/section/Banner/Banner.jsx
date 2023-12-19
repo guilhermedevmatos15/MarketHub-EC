@@ -16,18 +16,20 @@ import './Banner.scss';
 
 // * icons
 
-const Banner = ({ data }) => {
+const Banner = ({ className, type, product }) => {
    return (
       <>
-         {data.type === 'product' && (
-            <BannerProduct className={data.className} product={data.product} />
+         {type === 'product' && (
+            <BannerProduct className={className} product={product} />
          )}
       </>
    );
 };
 
 Banner.propTypes = {
-   data: PropTypes.object.isRequired,
+   className: PropTypes.string,
+   type: PropTypes.string,
+   product: PropTypes.object,
 };
 
 export default Banner;

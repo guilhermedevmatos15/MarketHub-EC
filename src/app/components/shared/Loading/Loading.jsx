@@ -18,7 +18,7 @@ import { GoDesktopDownload } from 'react-icons/go';
 const Loading = () => {
    return (
       <div className="Loading">
-         <GoDesktopDownload className="loading-icon" />
+         <GoDesktopDownload className="Loading-icon" />
 
          <span>Loading...</span>
       </div>

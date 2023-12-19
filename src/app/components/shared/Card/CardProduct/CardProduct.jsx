@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // * components
 import Rating from '../../Rating/Rating';
@@ -15,8 +16,8 @@ import scrollToTop from '../../../../utils/scrollToTop';
 
 // * icons
 import { MdOutlineLocalShipping } from 'react-icons/md';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 const CardProduct = ({ className, product, popUpType }) => {
    return (
@@ -44,7 +45,7 @@ const CardProduct = ({ className, product, popUpType }) => {
             </Link>
 
             <button className="btn">
-               <AiOutlineShoppingCart className="btn-icon" />
+               <FaRegHeart className="btn-icon" />
             </button>
          </div>
 
