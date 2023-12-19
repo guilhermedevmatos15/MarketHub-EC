@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // * components
 
 // * style
 import './Navigation.scss';
-import { Link } from 'react-router-dom';
 
 // * scripts
 
@@ -40,6 +40,9 @@ const Navigation = ({ fontSize, color, direction, gap }) => {
             </li>
             <li>
                <Link to='/faq'>FAQ</Link>
+            </li>
+            <li>
+               <Link to='/favorites'>Favorites</Link>
             </li>
          </ul>
       </nav>

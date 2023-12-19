@@ -14,29 +14,17 @@ import './Header.scss';
 import Logo from '../../../assets/img/markethub-logo.png';
 
 // * icons
-import {
-   AiOutlineSearch,
-   AiOutlineHeart,
-   AiOutlineShoppingCart,
-} from 'react-icons/ai';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
 
 const Header = () => {
    return (
       <header className="Header">
          <img src={Logo} alt="Logo MarketHub" />
-         
+
          <Navigation color="dark" direction="row" gap="30px" />
 
          <div className="header-interations">
-            <AiOutlineSearch
-               className="header-interations-icon"
-               title="Search"
-            />
-            <AiOutlineHeart
-               className="header-interations-icon"
-               title="Favorites"
-            />
             <AiOutlineShoppingCart
                className="header-interations-icon header-interations-icon-shopping"
                title="Cart"
