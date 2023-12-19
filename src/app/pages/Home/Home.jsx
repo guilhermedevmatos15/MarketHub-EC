@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Hero from '../../components/section/Hero/Hero';
 import Catalog from '../../components/section/Catalog/Catalog';
 import Card from '../../components/shared/Card/Card';
-import Banner from '../../components/section/Banner/Banner';
+import Banner from '../../components/shared/Banner/Banner';
 import Contact from '../../components/section/Contact/Contact';
 
 // * style

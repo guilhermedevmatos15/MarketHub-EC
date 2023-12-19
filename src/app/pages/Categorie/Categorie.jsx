@@ -33,11 +33,12 @@ const Categorie = () => {
 
    useEffect(() => {
       const categoriesRename = categories.map((value) => value.replace(' ', '-'));
+
       setCategorie(categoriesRename.find((value) => value === name));
 
       (async () => {
          try {
-            const URL = `https://fakestoreapi.com/products/category/${name}`;
+            const URL = `https://fakestoreapi.com/products/category/${name.replace('-', ' ')}`;
 
             const response = await fetch(URL);
             const data = await response.json();

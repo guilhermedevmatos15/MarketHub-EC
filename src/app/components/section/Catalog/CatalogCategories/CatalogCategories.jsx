@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // * style
 
@@ -15,6 +16,8 @@ import { Context } from '../../../../contexts/ProductsContext';
 // * icons
 
 const CatalogCategories = ({ className, maxWidth }) => {
+   const Navigation = useNavigate();
+
    const { products, categories } = useContext(Context);
 
    // ? Categories
@@ -45,6 +48,9 @@ const CatalogCategories = ({ className, maxWidth }) => {
                name={value.category}
                image={value.image}
                key={index}
+               onClick={(e) => {
+                  Navigation(`/categories/${(value.category).replace(' ', '-')}`);
+               }}
             />
          ))}
       </div>

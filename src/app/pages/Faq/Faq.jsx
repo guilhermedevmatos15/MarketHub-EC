@@ -14,7 +14,6 @@ import faqData from '../../data/faqData';
 // * img
 
 // * icons
-import { IoMdSearch } from 'react-icons/io';
 
 const Faq = () => {
    return (
@@ -22,7 +21,6 @@ const Faq = () => {
          <div className="presentation">
             <div className="content">
                <h2>FAQ's</h2>
-               <IoMdSearch className="faq-icon" title="Search" />
             </div>
             <hr />
          </div>

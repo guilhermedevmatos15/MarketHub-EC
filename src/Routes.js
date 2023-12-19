@@ -8,6 +8,7 @@ import Product from './app/pages/Product/Product';
 import About from './app/pages/About/About';
 import Faq from './app/pages/Faq/Faq';
 import Categorie from './app/pages/Categorie/Categorie';
+import Categories from './app/pages/Categories/Categories';
 
 const Router = createBrowserRouter([
    {
@@ -29,6 +30,10 @@ const Router = createBrowserRouter([
          {
             path: 'faq',
             element: <Faq />,
+         },
+         {
+            path: 'categories',
+            element: <Categories />,
          },
          {
             path: 'categories/:name',
