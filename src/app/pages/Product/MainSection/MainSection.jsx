@@ -41,11 +41,13 @@ const MainSection = ({ product }) => {
             </p>
 
             <Form
-               type="order"
                className="form-product"
+               type="order"
+               product={product}
                available={product?.rating?.cont}
                amount={amount}
                setAmount={setAmount}
+               liked={true}
             />
          </div>
       </section>

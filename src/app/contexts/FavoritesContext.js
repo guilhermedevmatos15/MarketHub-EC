@@ -1,35 +1,62 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect, useContext } from 'react';
+
+import { Context } from './ProductsContext';
 
 // * scripts
-export const Context = createContext();
+export const ContextF = createContext();
 
 const FavoritesContext = ({ children }) => {
+   const { products, setProducts } = useContext(Context);
+
    const key = 'favorites';
 
-   const [favorites, setFavorites] = useState(
-      JSON.parse(localStorage.getItem(key)).length > 0
-         ? JSON.parse(localStorage.getItem(key))
-         : []
-   );
+   const storedFavorites = localStorage.getItem(key);
+   const initialFavorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+
+   const [favorites, setFavorites] = useState(initialFavorites);
 
    useEffect(() => {
-      localStorage.setItem(key, favorites);
+      localStorage.setItem(key, JSON.stringify(favorites));
    }, [favorites]);
 
    const addFavorite = (product) => {
-      setFavorites(favorites.push(product));
+      console.log(product);
+      setFavorites([...favorites, product]);
+
+      setProducts(
+         products.map((value) => {
+            if (value.id === product.id) {
+               value.liked = true;
+            }
+
+            return value;
+         })
+      );
    };
 
    const rmFavorite = (product) => {
       setFavorites(favorites.filter((favorite) => favorite.id !== product.id));
+
+      setProducts(
+         products.map((value) => {
+            if (value.id === product.id) {
+               value.liked = false;
+            }
+
+            return value;
+         })
+      );
    };
 
+   const checkLike = (product) =>
+      favorites.some((favorite) => favorite.id === product.id);
+
    return (
-      <Context.Provider
-         value={{ favorites, setFavorites, addFavorite, rmFavorite }}
+      <ContextF.Provider
+         value={{ favorites, setFavorites, addFavorite, rmFavorite, checkLike }}
       >
          {children}
-      </Context.Provider>
+      </ContextF.Provider>
    );
 };
 

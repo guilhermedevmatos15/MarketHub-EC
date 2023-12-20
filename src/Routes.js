@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // * components
 import App from './App';
+import Error from './app/pages/Error/Error';
 import Home from './app/pages/Home/Home';
 import Product from './app/pages/Product/Product';
 import About from './app/pages/About/About';
@@ -15,6 +16,7 @@ const Router = createBrowserRouter([
    {
       path: '/',
       element: <App />,
+      errorElement: <Error />,
       children: [
          {
             path: '/',

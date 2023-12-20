@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 // * components
@@ -11,15 +11,18 @@ import './CardProduct.scss';
 import scrollToTop from '../../../../utils/scrollToTop';
 
 // * contexts
+import { ContextF } from '../../../../contexts/FavoritesContext';
 
 // * img
 
 // * icons
 import { MdOutlineLocalShipping } from 'react-icons/md';
-import { FaRegHeart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 
 const CardProduct = ({ className, product, popUpType }) => {
+   const { addFavorite, rmFavorite, checkLike } = useContext(ContextF);
+
    return (
       <div className={`Card CardProduct ${className && className}`}>
          <img src={product.image} alt="product" />
@@ -44,9 +47,15 @@ const CardProduct = ({ className, product, popUpType }) => {
                <button className="btn">more details</button>
             </Link>
 
-            <button className="btn">
-               <FaRegHeart className="btn-icon" />
-            </button>
+            {checkLike(product) ? (
+               <button className="btn active" onClick={(e) => rmFavorite(product)}>
+                  <FaHeart className="btn-icon" />
+               </button>
+            ) : (
+               <button className="btn" onClick={(e) => addFavorite(product)}>
+                  <FaRegHeart className="btn-icon" />
+               </button>
+            )}
          </div>
 
          {/* PopUp for Card */}

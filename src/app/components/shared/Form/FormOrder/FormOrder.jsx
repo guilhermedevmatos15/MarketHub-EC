@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 // * components
 
@@ -8,13 +8,17 @@ import './FormOrder.scss';
 // * scripts
 
 // * contexts
+import { ContextF } from '../../../../contexts/FavoritesContext';
 
 // * img
 
 // * icons
-import { FaMinus, FaPlus } from 'react-icons/fa6';
+import { FaMinus, FaPlus, FaHeart } from 'react-icons/fa6';
+import { FaRegHeart } from 'react-icons/fa';
 
-const FormOrder = ({ className, available, amount, setAmount }) => {
+const FormOrder = ({ className, product, available, amount, setAmount }) => {
+   const { addFavorite, rmFavorite, checkLike } = useContext(ContextF);
+
    const decrement = () => {
       setAmount((prevCont) => (prevCont - 1 < 1 ? 1 : prevCont - 1));
    };
@@ -43,6 +47,16 @@ const FormOrder = ({ className, available, amount, setAmount }) => {
          </div>
 
          <button className="btn">add to cart</button>
+
+         {checkLike(product) ? (
+            <button className="btn btn-heart active" onClick={(e) => rmFavorite(product)}>
+               <FaHeart className="btn-icon" />
+            </button>
+         ) : (
+            <button className="btn btn-heart" onClick={(e) => addFavorite(product)}>
+               <FaRegHeart className="btn-icon" />
+            </button>
+         )}
       </form>
    );
 };

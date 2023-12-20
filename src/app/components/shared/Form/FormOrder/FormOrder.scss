@@ -45,9 +45,35 @@
       min-width: 120px;
       background-color: $color-01;
       color: white;
+      height: 36px;
 
       &:hover {
          background-color: darken($color-01, 10);
+      }
+
+      &.btn-heart {
+         $bg-color: #494949;
+         width: 40px;
+         min-width: initial;
+         background-color: $bg-color;
+         color: white;
+
+         .btn-icon {
+            font-size: 1.08rem;
+         }
+
+         &:hover {
+            background-color: lighten($bg-color, 10);
+         }
+
+         &.active {
+            $bg-color: #c83d3d;
+            background-color: $bg-color;
+
+            &:hover {
+               background-color: darken($bg-color, 10);
+            }
+         }
       }
    }
 }

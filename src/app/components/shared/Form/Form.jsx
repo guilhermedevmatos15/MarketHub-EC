@@ -16,12 +16,13 @@ import './Form.scss';
 
 // * icons
 
-const Form = ({ type, className, available, amount, setAmount }) => {
+const Form = ({ className, type, product, available, amount, setAmount }) => {
    return (
       <>
          {type === 'order' && (
             <FormOrder
                className={className}
+               product={product}
                available={available}
                amount={amount}
                setAmount={setAmount}
