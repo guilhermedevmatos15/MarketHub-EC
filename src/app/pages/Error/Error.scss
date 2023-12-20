@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.Error {
+   width: 100%;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 50px;
+
+   img {
+      width: 300px;
+   }
+
+   div {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      h2 {
+         display: none;
+      }
+
+      p {
+         font-size: 1.4rem;
+      }
+
+      button {
+         background-color: darken($color-02, 10);
+         
+         &:hover {
+            background-color: darken($color-02, 20);
+            color: white;
+         }
+      }
+   }
+}
