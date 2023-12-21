@@ -20,18 +20,47 @@ const CartContext = ({ children }) => {
       localStorage.setItem(key, JSON.stringify(cart));
    }, [cart]);
 
+   // Update Cart
+   useEffect(() => {
+      if (cart?.length > 0) {
+         setCart((currentCart) =>
+            currentCart.map((cartItem) => {
+               const matchingProduct = products.find(
+                  (product) => cartItem.id === product.id
+               );
+
+               return matchingProduct
+                  ? { ...cartItem, amount: matchingProduct.amount }
+                  : cartItem;
+            })
+         );
+      }
+   }, [products, cart]);
+
    const addCart = (product, amount) => {
-      setCart([...cart, product]);
+      const already = cart.some((value) => value.id === product.id);
 
-      setProducts(
-         products.map((value) => {
+      if (already) {
+         const updatedProducts = products.map((value) => {
             if (value.id === product.id) {
-               value.amount = amount;
+               return { ...value, amount: value.amount + amount };
             }
-
             return value;
-         })
-      );
+         });
+
+         setProducts(updatedProducts);
+      } else {
+         setCart([...cart, { ...product, amount }]);
+
+         const updatedProducts = products.map((value) => {
+            if (value.id === product.id) {
+               return { ...value, amount };
+            }
+            return value;
+         });
+
+         setProducts(updatedProducts);
+      }
    };
 
    const rmCart = (product) => {
@@ -48,10 +77,10 @@ const CartContext = ({ children }) => {
       );
    };
 
+   const checkCart = (product) => {};
+
    return (
-      <ContextC.Provider
-         value={{ cart, setCart, addCart, rmCart }}
-      >
+      <ContextC.Provider value={{ cart, setCart, addCart, rmCart }}>
          {children}
       </ContextC.Provider>
    );
