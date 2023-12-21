@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // * components
 import Navigation from '../Navigation/Navigation';
@@ -18,6 +19,8 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
 
 const Header = () => {
+   const Navigate = useNavigate();
+
    return (
       <header className="Header">
          <img src={Logo} alt="Logo MarketHub" />
@@ -28,6 +31,7 @@ const Header = () => {
             <AiOutlineShoppingCart
                className="header-interations-icon header-interations-icon-shopping"
                title="Cart"
+               onClick={(e) => Navigate('cart')}
             />
          </div>
 

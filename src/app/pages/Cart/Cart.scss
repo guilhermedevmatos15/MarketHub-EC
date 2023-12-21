@@ -1,9 +1,9 @@
 @import '../../styles/variables';
 
-.Favorites {
+.Cart {
    margin-top: 75px;
    width: 100%;
-   max-width: 1920px;
+   max-width: 1600px;
    padding: 0 30px;
 
    h2 {
@@ -12,18 +12,7 @@
       text-align: center;
    }
 
-   .products {
-      margin: 60px auto 0 auto;
-      width: 100%;
-      max-width: 1300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 50px;
-   }
-
-   .no-favorites {
+   .no-cart {
       text-align: center;
 
       p:nth-child(1) {

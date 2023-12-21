@@ -11,6 +11,7 @@ import Faq from './app/pages/Faq/Faq';
 import Categorie from './app/pages/Categorie/Categorie';
 import Categories from './app/pages/Categories/Categories';
 import Favorites from './app/pages/Favorites/Favorites';
+import Cart from './app/pages/Cart/Cart';
 
 const Router = createBrowserRouter([
    {
@@ -45,6 +46,10 @@ const Router = createBrowserRouter([
          {
             path: 'favorites',
             element: <Favorites />,
+         },
+         {
+            path: 'cart',
+            element: <Cart />,
          }
       ],
    },
