@@ -23,17 +23,24 @@ const CartContext = ({ children }) => {
    // Update Cart
    useEffect(() => {
       if (cart?.length > 0) {
-         setCart((currentCart) =>
-            currentCart.map((cartItem) => {
+         setCart((currentCart) => {
+            const updatedCart = currentCart.map((cartItem) => {
                const matchingProduct = products.find(
                   (product) => cartItem.id === product.id
                );
 
                return matchingProduct
-                  ? { ...cartItem, amount: matchingProduct.amount }
+                  ? { ...cartItem, amount: matchingProduct.amount || 1 }
                   : cartItem;
-            })
-         );
+            });
+
+            // Verificar se houve alteração antes de atualizar o estado
+            if (JSON.stringify(updatedCart) !== JSON.stringify(currentCart)) {
+               return updatedCart;
+            }
+
+            return currentCart;
+         });
       }
    }, [products, cart]);
 
@@ -41,25 +48,29 @@ const CartContext = ({ children }) => {
       const already = cart.some((value) => value.id === product.id);
 
       if (already) {
-         const updatedProducts = products.map((value) => {
-            if (value.id === product.id) {
-               return { ...value, amount: value.amount + amount };
-            }
-            return value;
-         });
+         setCart((currentCart) =>
+            currentCart.map((cartItem) =>
+               cartItem.id === product.id
+                  ? { ...cartItem, amount: cartItem.amount + amount }
+                  : cartItem
+            )
+         );
 
-         setProducts(updatedProducts);
+         setProducts((currentProducts) =>
+            currentProducts.map((value) =>
+               value.id === product.id
+                  ? { ...value, amount: value.amount + amount }
+                  : value
+            )
+         );
       } else {
          setCart([...cart, { ...product, amount }]);
 
-         const updatedProducts = products.map((value) => {
-            if (value.id === product.id) {
-               return { ...value, amount };
-            }
-            return value;
-         });
-
-         setProducts(updatedProducts);
+         setProducts((currentProducts) =>
+            currentProducts.map((value) =>
+               value.id === product.id ? { ...value, amount } : value
+            )
+         );
       }
    };
 
@@ -76,8 +87,6 @@ const CartContext = ({ children }) => {
          })
       );
    };
-
-   const checkCart = (product) => {};
 
    return (
       <ContextC.Provider value={{ cart, setCart, addCart, rmCart }}>

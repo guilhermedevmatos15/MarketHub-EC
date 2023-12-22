@@ -11,14 +11,16 @@ import './CartProduct.scss';
 
 // * contexts
 import { Context } from '../../../contexts/ProductsContext';
+import { ContextC } from '../../../contexts/CartContext';
 
 // * img
 
 // * icons
-import { FaMinus, FaPlus } from 'react-icons/fa6';
+import { FaMinus, FaPlus, FaRegCircleXmark } from 'react-icons/fa6';
 
 const CartProduct = ({ className, product }) => {
    const { setProducts } = useContext(Context);
+   const { rmCart } = useContext(ContextC);
 
    const [amount, setAmount] = useState(product?.amount);
 
@@ -51,14 +53,16 @@ const CartProduct = ({ className, product }) => {
    };
 
    return (
-      <tr className={`CartProduct ${className}`}>
+      <tr className={`CartProduct ${className && className}`}>
          <td>
-            <img src={product?.image} alt={product?.title} />
             <div>
-               <h3 className="title">
-                  {String(product?.title).split(' ').slice(0, 2).join(' ')}
-               </h3>
-               <span className="category">{product?.category}</span>
+               <img src={product?.image} alt={product?.title} />
+               <div>
+                  <h3 className="title">
+                     {String(product?.title).split(' ').slice(0, 2).join(' ')}
+                  </h3>
+                  <span className="category">{product?.category}</span>
+               </div>
             </div>
          </td>
          <td>
@@ -76,7 +80,12 @@ const CartProduct = ({ className, product }) => {
             </div>
          </td>
          <td>
-            <span className="total">${(product?.price * product?.amount).toFixed(2)}</span>
+            <span className="total">
+               ${(product?.price * product?.amount).toFixed(2)}
+            </span>
+         </td>
+         <td>
+            <FaRegCircleXmark className='rm-icon' onClick={(e) => rmCart(product)} />
          </td>
       </tr>
    );
