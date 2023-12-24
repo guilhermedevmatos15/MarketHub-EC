@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
-
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 // * style
 import './CartProduct.scss';
@@ -19,43 +19,33 @@ import { ContextC } from '../../../contexts/CartContext';
 import { FaMinus, FaPlus, FaRegCircleXmark } from 'react-icons/fa6';
 
 const CartProduct = ({ className, product }) => {
+   const Navigate = useNavigate();
+
    const { setProducts } = useContext(Context);
    const { rmCart } = useContext(ContextC);
 
    const [amount, setAmount] = useState(product?.amount);
 
+   useEffect(() => {
+      setProducts((prevProducts) =>
+         prevProducts.map((value) =>
+            value.id === product.id ? { ...value, amount } : value
+         )
+      );
+   }, [product.id, amount, setProducts]);
+
    const decrementAmount = () => {
-      setAmount((prevAmount) => {
-         const newAmount = prevAmount - 1;
-
-         setProducts((prevProducts) =>
-            prevProducts.map((value) =>
-               value.id === product.id ? { ...value, amount: newAmount } : value
-            )
-         );
-
-         return newAmount;
-      });
+      setAmount((prevAmount) => Math.max(0, prevAmount - 1));
    };
 
    const incrementAmount = () => {
-      setAmount((prevAmount) => {
-         const newAmount = prevAmount + 1;
-
-         setProducts((prevProducts) =>
-            prevProducts.map((value) =>
-               value.id === product.id ? { ...value, amount: newAmount } : value
-            )
-         );
-
-         return newAmount;
-      });
+      setAmount((prevAmount) => prevAmount + 1);
    };
 
    return (
       <tr className={`CartProduct ${className && className}`}>
          <td>
-            <div>
+            <div onClick={(e) => Navigate('/product/' + product.id)}>
                <img src={product?.image} alt={product?.title} />
                <div>
                   <h3 className="title">
@@ -85,7 +75,10 @@ const CartProduct = ({ className, product }) => {
             </span>
          </td>
          <td>
-            <FaRegCircleXmark className='rm-icon' onClick={(e) => rmCart(product)} />
+            <FaRegCircleXmark
+               className="rm-icon"
+               onClick={(e) => rmCart(product)}
+            />
          </td>
       </tr>
    );

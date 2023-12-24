@@ -19,11 +19,11 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
+      flex-wrap: wrap;
       gap: 50px;
 
       table {
-         width: auto;
-         max-width: 800px;
+         width: 800px;
          flex-grow: 2;
          text-align: center;
          border-collapse: collapse;
@@ -31,7 +31,9 @@
          thead {
             th {
                padding: 10px;
-               border-bottom: 1px solid black;
+               border-bottom: 1px solid #c1c1c1e5;
+               font-weight: 500;
+               font-size: 1.1rem;
             }
          }
       }
@@ -39,6 +41,7 @@
       .summary {
          flex-grow: 1;
          max-width: 300px;
+         min-width: 250px;
          position: sticky;
          top: $header-height;
          left: 0;
@@ -98,3 +101,5 @@
       }
    }
 }
+
+@import './Cart_rspv.scss';

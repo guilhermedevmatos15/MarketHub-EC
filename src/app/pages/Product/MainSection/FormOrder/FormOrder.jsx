@@ -17,7 +17,7 @@ import { ContextC } from '../../../../contexts/CartContext';
 import { FaMinus, FaPlus, FaHeart } from 'react-icons/fa6';
 import { FaRegHeart } from 'react-icons/fa';
 
-const FormOrder = ({ className, product, available, amount, setAmount }) => {
+const FormOrder = ({ className, product, available, amount, setAmount, showModal, setShowModal }) => {
    const { addFavorite, rmFavorite, checkLike } = useContext(ContextF);
    const { addCart } = useContext(ContextC);
 
@@ -47,7 +47,13 @@ const FormOrder = ({ className, product, available, amount, setAmount }) => {
             </button>
          </div>
 
-         <button className="btn" onClick={(e) => addCart(product, amount)}>
+         <button
+            className="btn"
+            onClick={(e) => {
+               addCart(product, amount);
+               setShowModal(true);
+            }}
+         >
             add to cart
          </button>
 
