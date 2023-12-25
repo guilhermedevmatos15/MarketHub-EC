@@ -14,9 +14,9 @@ import './Navigation.scss';
 
 // * icons
 
-const Navigation = ({ fontSize, color, direction, gap }) => {
+const Navigation = ({ fontSize, color, direction, gap, onClick }) => {
    return (
-      <nav className="Navigation">
+      <nav className="Navigation" onClick={onClick}>
          <ul
             style={{ gap }}
             className={`${color === 'dark' ? 'color--dark' : 'color--light'} ${

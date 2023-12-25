@@ -18,7 +18,7 @@ import Logo from '../../../assets/img/markethub-logo.png';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
 
-const Header = () => {
+const Header = ({ showMenu, setShowMenu }) => {
    const Navigate = useNavigate();
 
    return (
@@ -29,13 +29,13 @@ const Header = () => {
 
          <div className="header-interations">
             <AiOutlineShoppingCart
-               className="header-interations-icon header-interations-icon-shopping"
+               className="header-interations-icon"
                title="Cart"
                onClick={(e) => Navigate('cart')}
             />
          </div>
 
-         <FiMenu className="header-icon-menu" />
+         <FiMenu className="header-icon-menu" onClick={(e) => setShowMenu(true)} />
       </header>
    );
 };
