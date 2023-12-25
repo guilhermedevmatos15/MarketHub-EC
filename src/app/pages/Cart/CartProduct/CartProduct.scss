@@ -1,0 +1,63 @@
+@import '../../../styles/variables';
+
+.CartProduct {
+   text-align: center;
+
+   td {
+      height: 105.5px;
+      padding: 10px;
+      border-bottom: 1px solid #c1c1c1e5;
+   }
+
+   td:nth-child(1) {
+      width: auto;
+
+      > div {
+         width: auto;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 20px;
+         cursor: pointer;
+
+         img {
+            width: 50px;
+            height: 50px;
+         }
+      }
+   }
+
+   td:nth-child(3) {
+      div {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 10px;
+      }
+
+      button {
+         $bg-color: #ababab;
+         min-width: initial;
+         width: 30px;
+         background-color: $bg-color;
+
+         &:hover {
+            background-color: darken($bg-color, 10);
+         }
+      }
+   }
+
+   td:last-child {
+      .rm-icon {
+         text-align: center;
+         vertical-align: middle;
+         font-size: 1.2rem;
+         cursor: pointer;
+         transition: $transition;
+
+         &:hover {
+            color: red;
+         }
+      }
+   }
+}

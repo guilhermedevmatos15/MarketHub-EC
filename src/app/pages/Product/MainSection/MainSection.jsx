@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // * components
 import Rating from '../../../components/shared/Rating/Rating';
-import Form from '../../../components/shared/Form/Form';
+import FormOrder from './FormOrder/FormOrder';
 
 // * style
 import './MainSection.scss';
+import Modal from '../../../components/shared/Modal/Modal';
 
 // * scripts
 
@@ -14,9 +16,13 @@ import './MainSection.scss';
 // * img
 
 // * icons
+import { FaRegCircleCheck } from 'react-icons/fa6';
 
 const MainSection = ({ product }) => {
+   const Navigate = useNavigate();
+
    const [amount, setAmount] = useState(1);
+   const [showModal, setShowModal] = useState(false);
 
    return (
       <section className="MainSection">
@@ -40,14 +46,29 @@ const MainSection = ({ product }) => {
                <strong>Available:</strong> {product?.rating?.cont}
             </p>
 
-            <Form
+            <FormOrder
                className="form-product"
-               type="order"
                product={product}
                available={product?.rating?.cont}
                amount={amount}
                setAmount={setAmount}
-               liked={true}
+               showModal={showModal}
+               setShowModal={setShowModal}
+            />
+
+            <Modal
+               className="modal-product"
+               show={showModal}
+               setShow={setShowModal}
+               title={<FaRegCircleCheck />}
+               message={
+                  <div>
+                     <p className="modal-product-message">Product added!</p>
+                     <button className="btn" onClick={(e) => Navigate('/cart')}>
+                        Go to Cart
+                     </button>
+                  </div>
+               }
             />
          </div>
       </section>

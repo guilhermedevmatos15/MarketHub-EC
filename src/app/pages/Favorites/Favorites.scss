@@ -23,23 +23,22 @@
       gap: 50px;
    }
 
-   .no-products {
-      margin: 60px auto 0 auto;
+   .no-favorites {
       text-align: center;
 
-      p:first-child {
-         font-size: 1.1rem;
-      }
-
-      p:nth-child(2) {
+      p:nth-child(1) {
          margin-top: 50px;
       }
 
+      p:nth-child(2) {
+         margin-top: 40px;
+      }
+
       button {
-         margin: 10px auto 0 auto;
+         margin: 5px auto 0 auto;
          background-color: $color-01;
          color: white;
-
+         
          &:hover {
             background-color: darken($color-01, 10);
          }

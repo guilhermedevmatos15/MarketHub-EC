@@ -26,7 +26,7 @@ const Favorites = () => {
       <div className={`Favorites`}>
          <h2>Favorites</h2>
 
-         {favorites.length > 0 ? (
+         {favorites?.length > 0 ? (
             <div className="products">
                {favorites.map((favorite, index) => (
                   <Card
@@ -38,9 +38,9 @@ const Favorites = () => {
                ))}
             </div>
          ) : (
-            <div className="no-products">
-               <p>No favorites</p>
-               <p className="call-to-action">Visit our categories</p>
+            <div className="no-favorites">
+               <p className="no-favorites-inform">No favorites</p>
+               <p className="cta">Visit our categories</p>
                <button className="btn" onClick={(e) => Navigate('/categories')}>
                   <MdCategory className="btn-icon" /> Categories
                </button>

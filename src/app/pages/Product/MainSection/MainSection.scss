@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .MainSection {
    $heigth: 280px;
 
@@ -52,6 +54,21 @@
       .price {
          font-weight: 400;
          font-size: 1.5rem;
+      }
+   }
+
+   .modal-product {
+      .title {
+         color: green;
+      }
+
+      button {
+         margin: 10px auto 0 auto;
+         background-color: darken($color-03, 20);
+         
+         &:hover {
+            background-color: darken($color-03, 40);
+         }
       }
    }
 }

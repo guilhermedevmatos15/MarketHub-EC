@@ -9,6 +9,7 @@ import './FormOrder.scss';
 
 // * contexts
 import { ContextF } from '../../../../contexts/FavoritesContext';
+import { ContextC } from '../../../../contexts/CartContext';
 
 // * img
 
@@ -16,18 +17,18 @@ import { ContextF } from '../../../../contexts/FavoritesContext';
 import { FaMinus, FaPlus, FaHeart } from 'react-icons/fa6';
 import { FaRegHeart } from 'react-icons/fa';
 
-const FormOrder = ({ className, product, available, amount, setAmount }) => {
+const FormOrder = ({ className, product, available, amount, setAmount, showModal, setShowModal }) => {
    const { addFavorite, rmFavorite, checkLike } = useContext(ContextF);
+   const { addCart } = useContext(ContextC);
 
    const decrement = () => {
       setAmount((prevCont) => (prevCont - 1 < 1 ? 1 : prevCont - 1));
    };
 
-   const increment = () => {
+   const increment = () =>
       setAmount((prevCont) =>
          prevCont + 1 > Number(available) ? Number(available) : prevCont + 1
       );
-   };
 
    return (
       <form
@@ -46,14 +47,28 @@ const FormOrder = ({ className, product, available, amount, setAmount }) => {
             </button>
          </div>
 
-         <button className="btn">add to cart</button>
+         <button
+            className="btn"
+            onClick={(e) => {
+               addCart(product, amount);
+               setShowModal(true);
+            }}
+         >
+            add to cart
+         </button>
 
          {checkLike(product) ? (
-            <button className="btn btn-heart active" onClick={(e) => rmFavorite(product)}>
+            <button
+               className="btn btn-heart active"
+               onClick={(e) => rmFavorite(product)}
+            >
                <FaHeart className="btn-icon" />
             </button>
          ) : (
-            <button className="btn btn-heart" onClick={(e) => addFavorite(product)}>
+            <button
+               className="btn btn-heart"
+               onClick={(e) => addFavorite(product)}
+            >
                <FaRegHeart className="btn-icon" />
             </button>
          )}

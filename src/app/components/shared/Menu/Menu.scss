@@ -1,0 +1,51 @@
+@import '../../../styles/variables';
+
+.Menu {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: -5;
+   opacity: 0;
+   width: 100%;
+   min-height: 100vh;
+   overflow-y: auto;
+   backdrop-filter: blur(7px);
+   background-color: rgba(black, 0.8);
+   transition: $transition;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+   &.active {
+      z-index: 20;
+      opacity: 1;
+   }
+
+   &-close-icon {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      z-index: 21;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+         color: #e65f5f;
+      }
+   }
+
+   .cart-icon {
+      margin-top: 50px;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+         color: $color-02;
+      }
+   }
+}
