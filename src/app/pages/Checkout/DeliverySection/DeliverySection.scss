@@ -1,0 +1,101 @@
+@import '../../../styles/variables';
+
+.DeliverySection {
+   margin-top: 50px;
+   padding: 0 30px;
+   width: 100%;
+   
+   h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      text-align: center;
+   }
+
+   .delivery-options {
+      margin-top: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      button {
+         min-width: 70px;
+         border-radius: 30px;
+         border: 1px solid $color-01;
+         background-color: transparent;
+         
+         &:hover {
+            background-color: $color-01;
+            color: white;
+         }
+      }
+   }
+
+   form {
+      margin-top: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 50px;
+
+      > div {
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: flex-start;
+         gap: 10px;
+
+         label {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            span {
+               font-size: 1rem;
+               font-weight: 400;
+            }
+
+            input {
+               width: 100%;
+            }
+         }
+      }
+   }
+
+   .delivery-interactions {
+      margin-top: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+
+      button:nth-child(1) {
+         border: 1px solid $color-01;
+         background-color: transparent;
+
+         &:hover {
+            border: 1px solid darken($color-02, 5);
+            background-color: darken($color-02, 5);
+         }
+      }
+
+      button:nth-child(2) {
+         background-color: $color-01;
+         color: white;
+
+         &:hover {
+            background-color: darken($color-01, 10);
+         }
+      }
+   }
+
+   .error {
+      margin-top: 20px;
+      text-align: center;
+      color: rgb(241, 80, 80);
+   }
+}

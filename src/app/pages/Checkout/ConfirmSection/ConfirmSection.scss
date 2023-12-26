@@ -1,0 +1,54 @@
+@import '../../../styles/variables';
+
+.ConfirmSection {
+   margin: 80px auto 0 auto;
+   padding: 0 30px;
+   width: 100%;
+   text-align: center;
+
+   > p {
+      margin-top: 20px;
+   }
+
+   .confirm-interactions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      button:nth-child(1) {
+         border: 1px solid $color-01;
+         background-color: transparent;
+
+         &:hover {
+            border: 1px solid darken($color-02, 5);
+            background-color: darken($color-02, 5);
+         }
+      }
+
+      button:nth-child(2) {
+         background-color: $color-01;
+         color: white;
+
+         &:hover {
+            background-color: darken($color-01, 10);
+         }
+      }
+   }
+
+   .confirm-modal {
+      .confirm-modal-icon {
+         color: green;
+         font-size: 2rem;
+      }
+
+      .confirm-modal-message {
+         margin-top: 10px;
+
+         p:nth-child(2) {
+            margin-top: 20px;
+         }
+      }
+   }
+}

@@ -1,0 +1,15 @@
+.CartSection {
+   @media (max-width: 510px) {
+      & {
+         .cart-products {
+            align-items: flex-start;
+         }
+
+         .cart-interactions {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            gap: 20px;
+         }
+      }
+   }
+}

@@ -88,8 +88,20 @@ const CartContext = ({ children }) => {
       );
    };
 
+   const calculateSubtotal = () => {
+      let sum = 0;
+
+      cart.forEach((product) => {
+         sum += product?.price * product?.amount;
+      });
+
+      return sum.toFixed(2);
+   };
+
    return (
-      <ContextC.Provider value={{ cart, setCart, addCart, rmCart }}>
+      <ContextC.Provider
+         value={{ cart, setCart, addCart, rmCart, calculateSubtotal }}
+      >
          {children}
       </ContextC.Provider>
    );

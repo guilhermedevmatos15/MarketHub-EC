@@ -12,6 +12,7 @@ import Categorie from './app/pages/Categorie/Categorie';
 import Categories from './app/pages/Categories/Categories';
 import Favorites from './app/pages/Favorites/Favorites';
 import Cart from './app/pages/Cart/Cart';
+import Checkout from './app/pages/Checkout/Checkout';
 
 const Router = createBrowserRouter([
    {
@@ -50,7 +51,11 @@ const Router = createBrowserRouter([
          {
             path: 'cart',
             element: <Cart />,
-         }
+         },
+         {
+            path: 'checkout',
+            element: <Checkout />,
+         },
       ],
    },
 ]);

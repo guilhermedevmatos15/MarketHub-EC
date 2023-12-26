@@ -20,17 +20,7 @@ import { MdCategory } from 'react-icons/md';
 const Cart = () => {
    const Navigate = useNavigate();
 
-   const { cart, addCart, rmCart } = useContext(ContextC);
-
-   const calculateSubtotal = () => {
-      let sum = 0;
-
-      cart.forEach((product) => {
-         sum += product?.price * product?.amount;
-      });
-
-      return sum.toFixed(2);
-   };
+   const { cart, calculateSubtotal } = useContext(ContextC);
 
    return (
       <div className={`Cart`}>
@@ -68,7 +58,7 @@ const Cart = () => {
                   <p className="total">
                      <span>Total</span> <span>${calculateSubtotal()}</span>
                   </p>
-                  <button className="btn">Checkout</button>
+                  <button className="btn" onClick={(e) => Navigate('/checkout')}>Checkout</button>
                </div>
             </div>
          ) : (
