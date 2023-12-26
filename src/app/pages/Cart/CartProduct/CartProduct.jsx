@@ -35,7 +35,9 @@ const CartProduct = ({ className, product }) => {
    }, [product.id, amount, setProducts]);
 
    const decrementAmount = () => {
-      setAmount((prevAmount) => Math.max(0, prevAmount - 1));
+      amount <= 1
+         ? setAmount(1)
+         : setAmount((prevAmount) => Math.max(0, prevAmount - 1));
    };
 
    const incrementAmount = () => {
@@ -49,7 +51,11 @@ const CartProduct = ({ className, product }) => {
                <img src={product?.image} alt={product?.title} />
                <div>
                   <h3 className="title">
-                     {String(product?.title).split(' ').slice(0, 2).join(' ')}
+                     {String(product?.title)
+                        .split(' ')
+                        .slice(0, 2)
+                        .join(' ')
+                        .replace('-', '')}
                   </h3>
                   <span className="category">{product?.category}</span>
                </div>

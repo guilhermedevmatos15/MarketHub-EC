@@ -23,7 +23,7 @@ const Header = ({ showMenu, setShowMenu }) => {
 
    return (
       <header className="Header">
-         <img src={Logo} alt="Logo MarketHub" />
+         <img src={Logo} alt="Logo MarketHub" onClick={(e) => Navigate('/')} />
 
          <Navigation color="dark" direction="row" gap="30px" />
 
