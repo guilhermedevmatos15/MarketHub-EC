@@ -16,11 +16,11 @@ import './Modal.scss';
 // * icons
 import { FaXmark } from 'react-icons/fa6';
 
-const Modal = ({ className, show, setShow, title, message }) => {
+const Modal = ({ className, show, setShow, title, message, close }) => {
    return (
       <div
          className={`modal-bg ${show && 'active'}`}
-         onClick={(e) => setShow(false)}
+         onClick={close ? (e) => setShow(false) : (e) => ''}
       >
          <div
             className={`Modal ${className && className}`}
@@ -29,6 +29,9 @@ const Modal = ({ className, show, setShow, title, message }) => {
             <FaXmark
                className="Modal-close-icon"
                onClick={(e) => setShow(false)}
+               style={{
+                  display: close ? 'absolute' : 'none',
+               }}
             />
 
             <h3 className="title">{title}</h3>

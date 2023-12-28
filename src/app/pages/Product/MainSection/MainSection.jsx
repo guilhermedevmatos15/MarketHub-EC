@@ -69,6 +69,7 @@ const MainSection = ({ product }) => {
                      </button>
                   </div>
                }
+               close={true}
             />
          </div>
       </section>

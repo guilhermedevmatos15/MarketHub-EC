@@ -57,12 +57,12 @@ const ConfirmSection = ({ setStage }) => {
                message={
                   <div className="confirm-modal-message">
                      <p>Congratulations! You have completed your purchase...</p>
-                     <p>Redirect in {time}...</p>
-                     {/* <p>Redirect in {time < 0 ? Navigate('/') : time}...</p> */}
+                     <p>Redirect in {time < 0 ? Navigate('/') : time}...</p>
                   </div>
                }
                show={showModal}
                setShow={setShowModal}
+               close={false}
             />
          )}
       </div>
