@@ -44,4 +44,4 @@ npm start
 
 ## Licença
 
-Este projeto está licenciado sob a Licença [Nome da Licença] - consulte o arquivo LICENSE.md para obter detalhes.
+Este projeto está licenciado sob a Licença MIT Licence - consulte o arquivo LICENSE.md para obter detalhes.
