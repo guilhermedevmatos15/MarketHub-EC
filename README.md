@@ -10,6 +10,11 @@
 
 Market Hub é uma empresa fictícia criada por mim mesmo. Ela é uma empresa no ramo do ecommerce com intuito de fornecer produtos de maneira rápida e fácil
 
+Tecnologias essenciais:
+
+-  React (create-react-app)
+-  Sass (pré-processador de CSS)
+
 Principais recursos:
 
 -  Uso de API (https://fakestoreapi.com/docs)
