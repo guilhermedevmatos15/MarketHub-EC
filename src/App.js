@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-
 import { Outlet } from 'react-router-dom';
 
 // * components
 import Loading from './app/components/shared/Loading/Loading';
 import Header from './app/components/shared/Header/Header';
 import Footer from './app/components/shared/Footer/Footer';
+import Menu from './app/components/shared/Menu/Menu';
 
 // * style
 import './app/styles/index.scss';
@@ -15,7 +15,6 @@ import { Context } from './app/contexts/ProductsContext';
 
 // * slider config
 import { register } from 'swiper/element/bundle';
-import Menu from './app/components/shared/Menu/Menu';
 register();
 
 const App = () => {
